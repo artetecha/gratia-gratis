@@ -13,7 +13,8 @@ if ! wp core is-installed; then
 	done
 else
 	# Go through the list of plugins to activate new plugins.
-	# Plugin previously activated will stay active. 
+	# Plugin previously activated will stay active.
+	jq -r '.[ "distro" ][ "enable-plugins" ][]' ../composer.json |
 	while read PLUGIN; do
 		wp plugin activate ${PLUGIN}
 	done

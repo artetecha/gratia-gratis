@@ -317,15 +317,15 @@
         },
         {
             "name": "wpackagist-plugin/charitable",
-            "version": "1.8.3.2",
+            "version": "1.8.3.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/charitable/",
-                "reference": "trunk"
+                "reference": "tags/1.8.3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/charitable.zip?timestamp=1731609454"
+                "url": "https://downloads.wordpress.org/plugin/charitable.1.8.3.3.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

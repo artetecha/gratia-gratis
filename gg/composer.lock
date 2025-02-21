@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4f33be06c7391db4aa6e25d3e5a0080",
+    "content-hash": "fe66d9810bfccec1cf9b00c568c592e4",
     "packages": [
         {
             "name": "composer/installers",
@@ -314,24 +314,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/akismet/"
-        },
-        {
-            "name": "wpackagist-plugin/charitable",
-            "version": "1.8.4.4",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/charitable/",
-                "reference": "tags/1.8.4.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/charitable.1.8.4.4.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/charitable/"
         },
         {
             "name": "wpackagist-plugin/elasticpress",

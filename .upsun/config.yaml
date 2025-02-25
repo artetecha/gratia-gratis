@@ -6,7 +6,7 @@ applications:
             root: "gg"
 
         # The runtime the application uses.
-        type: "php:8.3"
+        type: "php:8.4"
 
         runtime:
             extensions:
@@ -83,7 +83,7 @@ applications:
 
 services:
     ggdb:
-        type: mariadb:11.2
+        type: mariadb:11.4
 
     redis:
         type: redis:7.2

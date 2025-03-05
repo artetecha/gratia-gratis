@@ -45,15 +45,15 @@
 		"wpackagist-plugin/polylang": "^3.6",
 		"wpackagist-plugin/redirection": "^5.5",
 		"wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags": "^3.3",
-		"wpackagist-plugin/mailchimp-forms-by-mailmunch": "^3.2"
+		"wpackagist-plugin/cf7-mailchimp": "^1.1"
 	},
 	"distro": {
 		"default-theme": "twentytwentyfour",
 		"enable-plugins": [
 			"akismet",
+			"cf7-mailchimp",
 			"charitable",
 			"elasticpress",
-			"mailchimp-forms-by-mailmunch",
 			"polylang",
 			"really-simple-ssl",
 			"redirection",

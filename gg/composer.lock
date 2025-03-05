@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f65e487d36e51cab131118e2e61449e",
+    "content-hash": "a60709fb14e5f48d664a6dad976f2895",
     "packages": [
         {
             "name": "composer/installers",
@@ -316,6 +316,24 @@
             "homepage": "https://wordpress.org/plugins/akismet/"
         },
         {
+            "name": "wpackagist-plugin/cf7-mailchimp",
+            "version": "1.1.8",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/cf7-mailchimp/",
+                "reference": "tags/1.1.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/cf7-mailchimp.1.1.8.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/cf7-mailchimp/"
+        },
+        {
             "name": "wpackagist-plugin/elasticpress",
             "version": "5.1.4",
             "source": {
@@ -350,24 +368,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/jetpack/"
-        },
-        {
-            "name": "wpackagist-plugin/mailchimp-forms-by-mailmunch",
-            "version": "3.2.6",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/mailchimp-forms-by-mailmunch/",
-                "reference": "tags/3.2.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/mailchimp-forms-by-mailmunch.3.2.6.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/mailchimp-forms-by-mailmunch/"
         },
         {
             "name": "wpackagist-plugin/polylang",

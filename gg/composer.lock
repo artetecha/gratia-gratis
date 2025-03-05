@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "926c38065156de318883153f7d9244ec",
+    "content-hash": "0b63a3b677f9df7b784170bc7260cb6c",
     "packages": [
         {
             "name": "composer/installers",
@@ -406,6 +406,24 @@
             "homepage": "https://wordpress.org/plugins/really-simple-ssl/"
         },
         {
+            "name": "wpackagist-plugin/redirection",
+            "version": "5.5.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/redirection/",
+                "reference": "tags/5.5.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/redirection.5.5.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/redirection/"
+        },
+        {
             "name": "wpackagist-plugin/redis-cache",
             "version": "2.5.4",
             "source": {
@@ -442,22 +460,22 @@
             "homepage": "https://wordpress.org/plugins/series/"
         },
         {
-            "name": "wpackagist-plugin/social-pug",
-            "version": "1.34.7",
+            "name": "wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags",
+            "version": "3.3.4",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/social-pug/",
-                "reference": "tags/1.34.7"
+                "url": "https://plugins.svn.wordpress.org/wonderm00ns-simple-facebook-open-graph-tags/",
+                "reference": "tags/3.3.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/social-pug.1.34.7.zip"
+                "url": "https://downloads.wordpress.org/plugin/wonderm00ns-simple-facebook-open-graph-tags.3.3.4.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/social-pug/"
+            "homepage": "https://wordpress.org/plugins/wonderm00ns-simple-facebook-open-graph-tags/"
         },
         {
             "name": "wpackagist-plugin/wordpress-importer",

@@ -37,14 +37,15 @@
 		"wpackagist-plugin/jetpack": "^14.0",
 		"wpackagist-plugin/really-simple-ssl": "^9.0.0",
 		"wpackagist-plugin/wordpress-importer": "^0.8",
-		"wpackagist-plugin/social-pug": "^1.7.0",
 		"wpackagist-plugin/series": "^2.0.1",
 		"wpackagist-plugin/wpforms-lite": "^1.6.0.2",
 		"wpackagist-plugin/wp-cloudflare-page-cache": "5.0.9",
 		"wpackagist-plugin/redis-cache": "^2.0.2",
 		"wpackagist-plugin/elasticpress": "^5.1.3",
 		"wpackagist-plugin/polylang": "^3.6",
-		"wpackagist-plugin/mailchimp-for-wp": "^4.10"
+		"wpackagist-plugin/mailchimp-for-wp": "^4.10",
+		"wpackagist-plugin/redirection": "^5.5",
+		"wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags": "^3.3"
 	},
 	"distro": {
 		"default-theme": "twentytwentyfour",
@@ -55,9 +56,10 @@
 			"mailchimp-for-wp",
 			"polylang",
 			"really-simple-ssl",
+			"redirection",
 			"redis-cache",
 			"series",
-			"social-pug",
+			"wonderm00ns-simple-facebook-open-graph-tags",
 			"wp-cloudflare-page-cache",
 			"wpforms-lite"
 		]
@@ -65,7 +67,7 @@
 	"scripts": {
 		"postbuild": [
 			"mv wp-config.php wordpress/",
-			"rm -rf wordpress/wp-content/themes/hello.php"
+			"rm -rf wordpress/wp-content/plugins/hello.php"
 		],
 		"post-install-cmd": "@postbuild"
 	},

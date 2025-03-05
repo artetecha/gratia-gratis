@@ -43,9 +43,9 @@
 		"wpackagist-plugin/redis-cache": "^2.0.2",
 		"wpackagist-plugin/elasticpress": "^5.1.3",
 		"wpackagist-plugin/polylang": "^3.6",
-		"wpackagist-plugin/mailchimp-for-wp": "^4.10",
 		"wpackagist-plugin/redirection": "^5.5",
-		"wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags": "^3.3"
+		"wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags": "^3.3",
+		"wpackagist-plugin/mailchimp-forms-by-mailmunch": "^3.2"
 	},
 	"distro": {
 		"default-theme": "twentytwentyfour",
@@ -53,7 +53,7 @@
 			"akismet",
 			"charitable",
 			"elasticpress",
-			"mailchimp-for-wp",
+			"mailchimp-forms-by-mailmunch",
 			"polylang",
 			"really-simple-ssl",
 			"redirection",

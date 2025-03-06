@@ -45,7 +45,8 @@
 		"wpackagist-plugin/polylang": "^3.6",
 		"wpackagist-plugin/redirection": "^5.5",
 		"wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags": "^3.3",
-		"wpackagist-plugin/cf7-mailchimp": "^1.1"
+		"wpackagist-plugin/cf7-mailchimp": "^1.1",
+		"wpackagist-plugin/contact-form-7": "*"
 	},
 	"distro": {
 		"default-theme": "twentytwentyfour",
@@ -53,6 +54,7 @@
 			"akismet",
 			"cf7-mailchimp",
 			"charitable",
+			"contact-form-7",
 			"elasticpress",
 			"polylang",
 			"really-simple-ssl",

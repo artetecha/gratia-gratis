@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b63a3b677f9df7b784170bc7260cb6c",
+    "content-hash": "738abc001d13ec77e0d872807fb46a4e",
     "packages": [
         {
             "name": "composer/installers",
@@ -316,6 +316,24 @@
             "homepage": "https://wordpress.org/plugins/akismet/"
         },
         {
+            "name": "wpackagist-plugin/database-for-wpforms",
+            "version": "1.0.7",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/database-for-wpforms/",
+                "reference": "tags/1.0.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/database-for-wpforms.1.0.7.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/database-for-wpforms/"
+        },
+        {
             "name": "wpackagist-plugin/elasticpress",
             "version": "5.1.4",
             "source": {
@@ -350,24 +368,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/jetpack/"
-        },
-        {
-            "name": "wpackagist-plugin/mailchimp-for-wp",
-            "version": "4.10.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/mailchimp-for-wp/",
-                "reference": "tags/4.10.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/mailchimp-for-wp.4.10.2.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/mailchimp-for-wp/"
         },
         {
             "name": "wpackagist-plugin/polylang",

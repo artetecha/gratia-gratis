@@ -45,18 +45,14 @@
 		"wpackagist-plugin/polylang": "^3.6",
 		"wpackagist-plugin/redirection": "^5.5",
 		"wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags": "^3.3",
-		"wpackagist-plugin/cf7-mailchimp": "^1.1",
-		"wpackagist-plugin/contact-form-7": "*",
-		"wpackagist-plugin/contact-form-entries": "^1.4"
+		"wpackagist-plugin/database-for-wpforms": "^1.0"
 	},
 	"distro": {
 		"default-theme": "twentytwentyfour",
 		"enable-plugins": [
 			"akismet",
-			"cf7-mailchimp",
 			"charitable",
-			"contact-form-7",
-			"contact-form-entries",
+			"database-for-wpforms",
 			"elasticpress",
 			"polylang",
 			"really-simple-ssl",

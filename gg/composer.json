@@ -45,16 +45,17 @@
 		"wpackagist-plugin/polylang": "^3.6",
 		"wpackagist-plugin/redirection": "^5.5",
 		"wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags": "^3.3",
-		"wpackagist-plugin/database-for-wpforms": "^1.0"
+		"wpackagist-plugin/database-for-wpforms": "^1.0",
+		"wpackagist-plugin/mailchimp": "^1.6"
 	},
 	"distro": {
 		"default-theme": "twentytwentyfour",
 		"enable-plugins": [
 			"akismet",
-			"charitable",
 			"database-for-wpforms",
 			"elasticpress",
 			"jetpack",
+			"mailchimp",
 			"polylang",
 			"really-simple-ssl",
 			"redirection",

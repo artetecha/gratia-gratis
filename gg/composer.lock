@@ -389,15 +389,15 @@
         },
         {
             "name": "wpackagist-plugin/polylang",
-            "version": "3.7.2",
+            "version": "3.7.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/polylang/",
-                "reference": "tags/3.7.2"
+                "reference": "tags/3.7.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/polylang.3.7.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/polylang.3.7.3.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

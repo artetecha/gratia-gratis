@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4192e6dd44f6ac44b809c576a2be292e",
+    "content-hash": "96e7a6440312233f4694ab17cd547df4",
     "packages": [
         {
             "name": "composer/installers",
@@ -370,22 +370,22 @@
             "homepage": "https://wordpress.org/plugins/jetpack/"
         },
         {
-            "name": "wpackagist-plugin/mailchimp",
-            "version": "2.0.0",
+            "name": "wpackagist-plugin/mailchimp-for-wp",
+            "version": "4.10.9",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/mailchimp/",
-                "reference": "tags/2.0.0"
+                "url": "https://plugins.svn.wordpress.org/mailchimp-for-wp/",
+                "reference": "tags/4.10.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/mailchimp.2.0.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/mailchimp-for-wp.4.10.9.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/mailchimp/"
+            "homepage": "https://wordpress.org/plugins/mailchimp-for-wp/"
         },
         {
             "name": "wpackagist-plugin/polylang",
@@ -560,5 +560,5 @@
         "php": ">=8.0"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }

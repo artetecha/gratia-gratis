@@ -6,7 +6,7 @@
 
 add_action( 'wp_enqueue_scripts', function() {
 	// Only load if the CSS file actually exists to prevent errors
-	if ( file_exists( plugin_dir_path( __FILE__ ) . 'form   -style.css' ) ) {
+	if ( file_exists( plugin_dir_path( __FILE__ ) . 'form-style.css' ) ) {
 
 		wp_enqueue_style(
 			'gratia-mc4wp-styles', // Handle name

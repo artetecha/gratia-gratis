@@ -68,7 +68,8 @@
 	},
 	"scripts": {
 		"postbuild": [
-			"mv wp-config.php wordpress/",
+			"cp wp-config.php wordpress/",
+			"cp -r mu-plugins wordpress/wp-content/",
 			"rm -rf wordpress/wp-content/plugins/hello.php"
 		],
 		"post-install-cmd": "@postbuild"

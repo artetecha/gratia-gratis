@@ -1,0 +1,69 @@
+/* --- MC4WP Styling to match WPForms --- */
+
+.mc4wp-form {
+	margin-bottom: 30px;
+}
+
+/* Labels */
+.mc4wp-form label {
+	display: block;
+	font-weight: 700;
+	margin-bottom: 8px;
+	font-size: 16px;
+	color: #333;
+}
+
+/* Inputs */
+.mc4wp-form input[type="email"],
+.mc4wp-form input[type="text"],
+.mc4wp-form select {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px 15px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	background-color: #fff;
+	margin-bottom: 20px;
+	color: #333;
+}
+
+/* Focus States */
+.mc4wp-form input[type="email"]:focus,
+.mc4wp-form input[type="text"]:focus {
+	border-color: #666;
+	outline: none;
+}
+
+/* Submit Button */
+.mc4wp-form input[type="submit"] {
+	display: inline-block;
+	vertical-align: middle;
+	background-color: #0d0d0d;
+	color: #ffffff;
+	border: none;
+	border-radius: 3px;
+	padding: 12px 25px;
+	font-size: 16px;
+	font-weight: 500;
+	cursor: pointer;
+	width: 100%;
+	transition: background-color 0.3s ease;
+}
+
+.mc4wp-form input[type="submit"]:hover {
+	background-color: #333333;
+}
+
+/* Checkbox Groups Fix */
+.mc4wp-form input[type="checkbox"] {
+	width: auto !important;
+	margin-right: 10px;
+	transform: scale(1.2);
+}
+
+.mc4wp-form label:has(input[type="checkbox"]) {
+	font-weight: 400;
+	display: flex;
+	align-items: center;
+}

@@ -46,7 +46,7 @@
 		"wpackagist-plugin/redirection": "^5.5",
 		"wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags": "^3.3",
 		"wpackagist-plugin/database-for-wpforms": "^1.0",
-		"wpackagist-plugin/mailchimp": "^2.0"
+		"wpackagist-plugin/mailchimp-for-wp": "^4.10"
 	},
 	"distro": {
 		"default-theme": "twentytwentyfour",
@@ -55,7 +55,7 @@
 			"database-for-wpforms",
 			"elasticpress",
 			"jetpack",
-			"mailchimp",
+			"mailchimp-for-wp",
 			"polylang",
 			"really-simple-ssl",
 			"redirection",

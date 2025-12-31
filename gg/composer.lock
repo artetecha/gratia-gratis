@@ -317,15 +317,15 @@
         },
         {
             "name": "wpackagist-plugin/database-for-wpforms",
-            "version": "1.0.9",
+            "version": "1.1.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/database-for-wpforms/",
-                "reference": "tags/1.0.9"
+                "reference": "tags/1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/database-for-wpforms.1.0.9.zip"
+                "url": "https://downloads.wordpress.org/plugin/database-for-wpforms.1.1.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -560,5 +560,5 @@
         "php": ">=8.0"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }

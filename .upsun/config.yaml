@@ -6,7 +6,7 @@ applications:
             root: "gg"
 
         # The runtime the application uses.
-        type: "php:8.4"
+        type: "php:8.5"
 
         runtime:
             extensions:
@@ -86,10 +86,10 @@ services:
         type: mariadb:11.4
 
     redis:
-        type: redis:7.2
+        type: redis:8.0
 
     es:
-        type: elasticsearch:7.10
+        type: elasticsearch:8.19
 
 routes:
     # The routes of the project.

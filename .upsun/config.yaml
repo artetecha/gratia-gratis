@@ -83,7 +83,7 @@ applications:
 
 services:
     ggdb:
-        type: mariadb:11.4
+        type: mariadb:11.8
 
     redis:
         type: redis:7.2

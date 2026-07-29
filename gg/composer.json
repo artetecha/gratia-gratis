@@ -1,97 +1,112 @@
 {
-	"name": "johnpbloch/wordpress",
-	"description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
-	"keywords": [
-		"wordpress",
-		"blog",
-		"cms"
-	],
-	"type": "package",
-	"homepage": "http://wordpress.org/",
-	"license": "GPL-2.0+",
-	"authors": [
-		{
-			"name": "WordPress Community",
-			"homepage": "http://wordpress.org/about/"
-		}
-	],
-	"support": {
-		"issues": "http://core.trac.wordpress.org/",
-		"forum": "http://wordpress.org/support/",
-		"wiki": "http://codex.wordpress.org/",
-		"irc": "irc://irc.freenode.net/wordpress",
-		"source": "http://core.trac.wordpress.org/browser"
-	},
-	"repositories": [
-		{
-			"type": "composer",
-			"url": "https://wpackagist.org"
-		}
-	],
-	"require": {
-		"php": ">=8.0",
-		"johnpbloch/wordpress-core-installer": "^2.0",
-		"johnpbloch/wordpress-core": "^7.0.0",
-		"platformsh/config-reader": "^3.0",
-		"wpackagist-plugin/akismet": "^5.0",
-		"wpackagist-plugin/jetpack": "^16.0",
-		"wpackagist-plugin/really-simple-ssl": "^9.0.0",
-		"wpackagist-plugin/wordpress-importer": "^0.9",
-		"wpackagist-plugin/series": "^2.0.1",
-		"wpackagist-plugin/wpforms-lite": "^2.0.0.2",
-		"wpackagist-plugin/wp-cloudflare-page-cache": "5.3.2",
-		"wpackagist-plugin/redis-cache": "^2.0.2",
-		"wpackagist-plugin/elasticpress": "^5.1.3",
-		"wpackagist-plugin/polylang": "^3.6",
-		"wpackagist-plugin/redirection": "^5.5",
-		"wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags": "^3.3",
-		"wpackagist-plugin/database-for-wpforms": "^1.0",
-		"wpackagist-plugin/mailchimp-for-wp": "^4.10"
-	},
-	"distro": {
-		"default-theme": "twentytwentyfour",
-		"enable-plugins": [
-			"akismet",
-			"database-for-wpforms",
-			"elasticpress",
-			"jetpack",
-			"mailchimp-for-wp",
-			"polylang",
-			"really-simple-ssl",
-			"redirection",
-			"redis-cache",
-			"series",
-			"wonderm00ns-simple-facebook-open-graph-tags",
-			"wp-cloudflare-page-cache",
-			"wpforms-lite"
-		]
-	},
-	"scripts": {
-		"postbuild": [
-			"cp wp-config.php wordpress/",
-			"cp -r mu-plugins wordpress/wp-content/",
-			"rm -rf wordpress/wp-content/plugins/hello.php"
-		],
-		"post-install-cmd": "@postbuild"
-	},
-	"extra": {
-		"installer-paths": {
-			"wordpress/wp-content/plugins/{$name}": [
-				"type:wordpress-plugin"
-			],
-			"wordpress/wp-content/themes/{$name}": [
-				"type:wordpress-theme"
-			],
-			"wordpress/wp-content/mu-plugins/{$name}": [
-				"type:wordpress-muplugin"
-			]
-		}
-	},
-	"config": {
-		"allow-plugins": {
-			"composer/installers": true,
-			"johnpbloch/wordpress-core-installer": true,
-			"inpsyde/wp-translation-downloader": true
-		}
-	}
+  "name": "artetecha/gratia-gratis",
+  "description": "Composer-managed WordPress project for gratia.gratis on Upsun.",
+  "keywords": [
+    "upsun",
+    "wordpress"
+  ],
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://www.gratia.gratis/",
+  "authors": [
+    {
+      "name": "ArteTecha",
+      "homepage": "https://artetecha.com/"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": [
+        "wpackagist-plugin/*",
+        "wpackagist-theme/*"
+      ]
+    }
+  ],
+  "require": {
+    "php": ">=8.4",
+    "artetecha/upsun-wp": "^0.8",
+    "composer/installers": "^2.3",
+    "inpsyde/wp-translation-downloader": "^2.0",
+    "johnpbloch/wordpress-core": "^7.0.0",
+    "johnpbloch/wordpress-core-installer": "^2.0",
+    "platformsh/config-reader": "^3.0",
+    "wpackagist-plugin/akismet": "^5.0",
+    "wpackagist-plugin/database-for-wpforms": "^1.0",
+    "wpackagist-plugin/elasticpress": "^5.1.3",
+    "wpackagist-plugin/jetpack": "^16.0",
+    "wpackagist-plugin/mailchimp-for-wp": "^4.10",
+    "wpackagist-plugin/polylang": "^3.6",
+    "wpackagist-plugin/redis-cache": "^2.8",
+    "wpackagist-plugin/redirection": "^5.5",
+    "wpackagist-plugin/series": "^2.0.1",
+    "wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags": "^3.3",
+    "wpackagist-plugin/wpforms-lite": "^2.0.0.2"
+  },
+  "extra": {
+    "wordpress-install-dir": "wordpress",
+    "installer-paths": {
+      "composer-mu-plugins/{$name}": [
+        "artetecha/upsun-wp"
+      ],
+      "wordpress/wp-content/plugins/{$name}": [
+        "type:wordpress-plugin"
+      ],
+      "wordpress/wp-content/themes/{$name}": [
+        "type:wordpress-theme"
+      ],
+      "wordpress/wp-content/mu-plugins/{$name}": [
+        "type:wordpress-muplugin"
+      ]
+    },
+    "distro": {
+      "default-theme": "twentytwentyfour",
+      "enable-plugins": [
+        "akismet",
+        "database-for-wpforms",
+        "elasticpress",
+        "jetpack",
+        "mailchimp-for-wp",
+        "polylang",
+        "redis-cache",
+        "redirection",
+        "series",
+        "wonderm00ns-simple-facebook-open-graph-tags",
+        "wpforms-lite"
+      ]
+    },
+    "wp-translation-downloader": {
+      "languages": [
+        "it_IT"
+      ],
+      "directory": "wordpress/wp-content/languages"
+    }
+  },
+  "scripts": {
+    "postbuild": [
+      "cp wp-config.php wordpress/",
+      "mkdir -p wordpress/wp-content/mu-plugins",
+      "cp -R mu-plugins/. wordpress/wp-content/mu-plugins/",
+      "rm -rf wordpress/wp-content/mu-plugins/upsun",
+      "cp -R composer-mu-plugins/upsun wordpress/wp-content/mu-plugins/upsun",
+      "cp composer-mu-plugins/upsun/upsun-loader.php wordpress/wp-content/mu-plugins/upsun-loader.php",
+      "cp wordpress/wp-content/plugins/redis-cache/includes/object-cache.php wordpress/wp-content/object-cache.php",
+      "find wordpress/wp-content/themes -mindepth 1 -maxdepth 1 -type d -name 'twenty*' ! -name 'twentytwentyfour' -exec rm -rf {} +",
+      "rm -f wordpress/wp-content/plugins/hello.php"
+    ],
+    "post-install-cmd": "@postbuild",
+    "post-update-cmd": "@postbuild"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "inpsyde/wp-translation-downloader": true,
+      "johnpbloch/wordpress-core-installer": true
+    },
+    "platform": {
+      "php": "8.4.0"
+    },
+    "sort-packages": true
+  }
 }

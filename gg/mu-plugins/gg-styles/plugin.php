@@ -12,7 +12,7 @@ add_action( 'wp_enqueue_scripts', function() {
 			'gratia-mc4wp-styles', // Handle name
 			plugins_url( 'form-style.css', __FILE__ ), // URL to the CSS file
 			[],
-			'1.0.0'
+			'1.1.0'
 		);
 
 	}

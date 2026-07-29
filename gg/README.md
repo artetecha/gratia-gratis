@@ -57,6 +57,9 @@ Cloudflare provides CDN and security services and caches static assets. The
 Upsun router is the only full-page HTML cache. WordPress page-cache plugins
 must not be reintroduced. `wp-config.php` isolates Redis keys by environment,
 disables dashboard file changes, and disables request-driven WordPress cron.
+The project MU plugin strips Polylang's anonymous `pll_language` response
+cookie because language selection is URL-based; otherwise every HTML response
+would carry `Set-Cookie` and bypass the Upsun router cache.
 
 ## Deployment lifecycle
 

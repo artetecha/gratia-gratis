@@ -4,8 +4,56 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f1a8ca9057e874a9891a262cc516050",
+    "content-hash": "dc4482807a3a79e6d610a6830ae36ca1",
     "packages": [
+        {
+            "name": "artetecha/upsun-wp",
+            "version": "0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/artetecha/upsun-wp.git",
+                "reference": "b2405c0c87880fb0cc53f17580abc02b9b1d621c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/artetecha/upsun-wp/zipball/b2405c0c87880fb0cc53f17580abc02b9b1d621c",
+                "reference": "b2405c0c87880fb0cc53f17580abc02b9b1d621c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.5"
+            },
+            "type": "wordpress-muplugin",
+            "extra": {
+                "installer-name": "upsun"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vince Russo",
+                    "homepage": "https://artetecha.com"
+                }
+            ],
+            "description": "Must-use plugin integrating WordPress with the Upsun platform: environment awareness, router-cache friendliness, safe preview clones, deploy migrations, Site Health checks, and a wp upsun CLI command.",
+            "homepage": "https://upsun.artetecha.com/",
+            "keywords": [
+                "mu-plugin",
+                "platformsh",
+                "upsun",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/artetecha/upsun-wp/issues",
+                "source": "https://github.com/artetecha/upsun-wp"
+            },
+            "time": "2026-07-27T06:38:51+00:00"
+        },
         {
             "name": "composer/installers",
             "version": "v2.3.0",
@@ -151,6 +199,68 @@
                 }
             ],
             "time": "2024-06-24T20:46:46+00:00"
+        },
+        {
+            "name": "inpsyde/wp-translation-downloader",
+            "version": "2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/inpsyde/wp-translation-downloader.git",
+                "reference": "60c4a8092d5e0feca2bd8b62c645257fc3bff12e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/inpsyde/wp-translation-downloader/zipball/60c4a8092d5e0feca2bd8b62c645257fc3bff12e",
+                "reference": "60c4a8092d5e0feca2bd8b62c645257fc3bff12e",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^2.0",
+                "composer/installers": "^1.0 || ^2.0",
+                "ext-json": "*",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "behat/behat": "^v3.10.0",
+                "brain/monkey": "^2.6.1",
+                "composer/composer": "^2.3.7",
+                "inpsyde/php-coding-standards": "^1.0.0",
+                "mikey179/vfsstream": "^v1.6.10",
+                "ondram/ci-detector": "^4.1.0",
+                "phpunit/phpunit": "^9.6.0",
+                "vimeo/psalm": "^4.23.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Inpsyde\\WpTranslationDownloader\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Inpsyde\\WpTranslationDownloader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Syde GmbH",
+                    "email": "hello@syde.com",
+                    "homepage": "https://syde.com/",
+                    "role": "Company"
+                },
+                {
+                    "name": "Christian Leucht",
+                    "email": "c.leucht@inpsyde.com"
+                }
+            ],
+            "description": "Composer plugin to download translations from wordpress.org API.",
+            "support": {
+                "issues": "https://github.com/inpsyde/wp-translation-downloader/issues",
+                "source": "https://github.com/inpsyde/wp-translation-downloader/tree/2.6"
+            },
+            "time": "2025-05-28T12:02:26+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
@@ -406,24 +516,6 @@
             "homepage": "https://wordpress.org/plugins/polylang/"
         },
         {
-            "name": "wpackagist-plugin/really-simple-ssl",
-            "version": "9.6.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/really-simple-ssl/",
-                "reference": "tags/9.6.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/really-simple-ssl.9.6.1.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/really-simple-ssl/"
-        },
-        {
             "name": "wpackagist-plugin/redirection",
             "version": "5.9.0",
             "source": {
@@ -479,57 +571,21 @@
         },
         {
             "name": "wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags",
-            "version": "3.5.0",
+            "version": "3.5.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wonderm00ns-simple-facebook-open-graph-tags/",
-                "reference": "tags/3.5.0"
+                "reference": "tags/3.5.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wonderm00ns-simple-facebook-open-graph-tags.3.5.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/wonderm00ns-simple-facebook-open-graph-tags.3.5.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wonderm00ns-simple-facebook-open-graph-tags/"
-        },
-        {
-            "name": "wpackagist-plugin/wordpress-importer",
-            "version": "0.9.5",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wordpress-importer/",
-                "reference": "tags/0.9.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-importer.0.9.5.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wordpress-importer/"
-        },
-        {
-            "name": "wpackagist-plugin/wp-cloudflare-page-cache",
-            "version": "5.3.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-cloudflare-page-cache/",
-                "reference": "tags/5.3.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-cloudflare-page-cache.5.3.2.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-cloudflare-page-cache/"
         },
         {
             "name": "wpackagist-plugin/wpforms-lite",
@@ -557,8 +613,11 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.0"
+        "php": ">=8.4"
     },
     "platform-dev": {},
+    "platform-overrides": {
+        "php": "8.4.0"
+    },
     "plugin-api-version": "2.9.0"
 }

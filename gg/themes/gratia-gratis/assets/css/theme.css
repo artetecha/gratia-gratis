@@ -74,6 +74,10 @@ a:hover {
 	text-decoration: underline;
 }
 
+.gg-header-actions .gg-meta {
+	margin: 0;
+}
+
 .gg-header-subscribe > a,
 .wp-block-button.is-style-outline > .wp-block-button__link {
 	transition: background-color 160ms ease, color 160ms ease;
@@ -94,10 +98,24 @@ a:hover {
 
 .gg-home-hero {
 	min-height: min(860px, calc(100vh - 94px));
+	border-bottom: 1px solid #d7d5cf;
 }
 
 .gg-home-title {
 	max-width: 12ch;
+	line-height: 0.88;
+}
+
+.gg-home-statement {
+	max-width: 42ch;
+	line-height: 1.28;
+}
+
+.gg-home-note {
+	max-width: 30rem;
+	margin-bottom: 0;
+	padding-top: 1rem;
+	border-top: 1px solid var(--wp--preset--color--ink);
 }
 
 .gg-section-title {
@@ -141,6 +159,15 @@ a:hover {
 	height: 100%;
 }
 
+.wp-block-columns.gg-ministry-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.2fr) minmax(14rem, 0.4fr) minmax(14rem, 0.4fr);
+}
+
+.gg-ministry-grid > .wp-block-column {
+	min-width: 0;
+}
+
 .gg-ministry-grid img {
 	width: 100%;
 	height: clamp(26rem, 48vw, 43rem);
@@ -173,12 +200,58 @@ a:hover {
 
 .gg-query-list {
 	border-top: 1px solid currentColor;
+	counter-reset: gg-article;
 }
 
 .gg-query-list > li {
+	counter-increment: gg-article;
 	margin: 0;
-	padding-block: clamp(1.5rem, 3vw, 2.25rem);
 	border-bottom: 1px solid rgba(17, 17, 17, 0.18);
+}
+
+.gg-query-list > li:not(:has(> .wp-block-group)) {
+	padding-block: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.gg-query-list > li > .wp-block-group {
+	display: grid;
+	grid-template-columns: 4rem minmax(0, 1fr) minmax(10rem, 0.3fr) 2rem;
+	gap: 1rem;
+	align-items: center;
+	padding-block: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.gg-query-list > li > .wp-block-group::before {
+	content: counter(gg-article, decimal-leading-zero);
+	font-family: var(--wp--preset--font-family--sans);
+	font-size: var(--wp--preset--font-size--xs);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+}
+
+.gg-query-list > li > .wp-block-group::after {
+	content: "↗";
+	font-family: var(--wp--preset--font-family--sans);
+	font-size: 1.1rem;
+	text-align: right;
+}
+
+.gg-query-list > li .wp-block-post-title,
+.gg-query-list > li .wp-block-group {
+	margin-block: 0;
+}
+
+.gg-query-list > li > .wp-block-group > .wp-block-group {
+	justify-self: start;
+}
+
+.wp-block-categories.gg-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem 1.5rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 .has-olive-background-color .gg-query-list > li,
@@ -198,10 +271,16 @@ a:hover {
 .gg-post-hero h1,
 .gg-archive-hero h1 {
 	max-width: 13ch;
+	line-height: 0.9;
 }
 
 .gg-post-feature {
 	background: var(--wp--preset--color--paper);
+}
+
+.gg-post-feature:not(:has(img)),
+.gg-page-feature:not(:has(img)) {
+	display: none;
 }
 
 .gg-post-feature .wp-block-post-featured-image {
@@ -342,6 +421,30 @@ a:hover {
 	grid-column: 1 / -1;
 }
 
+.gg-newsletter-options {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem 2rem;
+}
+
+.gg-newsletter-options label {
+	display: flex;
+	align-items: center;
+	gap: 0.55rem;
+}
+
+.gg-newsletter-status {
+	margin-top: 1rem;
+	color: rgba(249, 249, 249, 0.65);
+	font-family: var(--wp--preset--font-family--sans);
+	font-size: var(--wp--preset--font-size--xs);
+}
+
+.gg-newsletter-fallback input:disabled {
+	opacity: 0.72;
+	cursor: not-allowed;
+}
+
 /* The same MC4WP form powers both treatments. On interior pages its optional
  * profile/topic fields stay submitted but are visually reduced to email. */
 .gg-newsletter--compact .mc4wp-form-fields {
@@ -374,8 +477,65 @@ a:hover {
 	margin-top: 5rem;
 }
 
+.gg-books-group-heading {
+	margin-bottom: var(--wp--preset--spacing--50);
+	padding-bottom: var(--wp--preset--spacing--30);
+	border-bottom: 1px solid rgba(17, 17, 17, 0.35);
+}
+
+.gg-books-group-heading > * {
+	margin-block: 0;
+}
+
+.wp-block-columns.gg-book-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: clamp(2rem, 5vw, 6rem);
+	align-items: start;
+}
+
+.gg-book-card:nth-child(3n + 2) {
+	margin-top: 5rem;
+}
+
+.gg-book-cover img {
+	width: 100%;
+	height: auto;
+	border-radius: 24px;
+	transition: transform 180ms ease;
+}
+
+.gg-book-card a:hover img {
+	transform: translateY(-0.4rem);
+}
+
+.gg-book-title {
+	margin-top: var(--wp--preset--spacing--30);
+	margin-bottom: var(--wp--preset--spacing--20);
+}
+
+.gg-book-info {
+	gap: 0.35rem 1rem;
+}
+
+.gg-book-info > * {
+	margin-block: 0;
+}
+
 .gg-contact-content .wpforms-container {
 	margin: 0;
+}
+
+.gg-contact-details {
+	margin-top: var(--wp--preset--spacing--50);
+	padding-top: var(--wp--preset--spacing--30);
+	border-top: 1px solid rgba(17, 17, 17, 0.35);
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.gg-contact-details p {
+	margin-block: 0.3rem;
 }
 
 .gg-footer {
@@ -415,12 +575,28 @@ a:hover {
 		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 	}
 
+	.wp-block-columns.gg-book-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.gg-book-card:nth-child(3n + 2) {
+		margin-top: 0;
+	}
+
+	.gg-book-card:nth-child(even) {
+		margin-top: 4rem;
+	}
+
 	.gg-post-layout {
 		grid-template-columns: 1fr !important;
 	}
 
 	.gg-post-rail {
 		position: static;
+	}
+
+	.gg-query-list > li > .wp-block-group {
+		grid-template-columns: 3rem minmax(0, 1fr) 9rem 1.5rem;
 	}
 }
 
@@ -451,12 +627,49 @@ a:hover {
 		margin-top: 0;
 	}
 
+	.wp-block-columns.gg-book-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.gg-book-card:nth-child(even) {
+		margin-top: 0;
+	}
+
 	.gg-newsletter .mc4wp-form-fields {
 		grid-template-columns: 1fr;
 	}
 
 	.gg-newsletter .mc4wp-form-fields > * {
 		grid-column: 1 !important;
+	}
+
+	.gg-header-actions > .gg-meta {
+		display: none;
+	}
+
+	.gg-query-list > li > .wp-block-group {
+		grid-template-columns: 2.25rem minmax(0, 1fr) 1.25rem;
+		gap: 0.75rem;
+	}
+
+	.gg-query-list > li > .wp-block-group::before {
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	.gg-query-list > li > .wp-block-group > .wp-block-post-title {
+		grid-column: 2;
+		grid-row: 1;
+	}
+
+	.gg-query-list > li > .wp-block-group > .wp-block-group {
+		grid-column: 2;
+		grid-row: 2;
+	}
+
+	.gg-query-list > li > .wp-block-group::after {
+		grid-column: 3;
+		grid-row: 1 / 3;
 	}
 }
 

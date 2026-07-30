@@ -27,9 +27,19 @@ page-hero patterns are available in the inserter too.
 2. In Settings > Reading, keep the existing static homepage and posts page.
 3. Set the Site Logo in the Site Editor; the theme uses WordPress' Site Logo
    block rather than embedding a duplicate logo.
-4. Keep the existing Mailchimp for WordPress form. The newsletter pattern
-   renders the plugin's default `[mc4wp_form]` shortcode.
+4. Activate Mailchimp for WordPress and keep form `1158`. The theme wrapper
+   renders that form and shows an honest disabled preview if the plugin is not
+   active on a temporary environment.
 5. The contact template styles the site's existing WPForms form.
+
+The `/blog` slug has its own query template, so it works whether or not that
+page is selected as the Posts page under Reading settings. The Books template
+uses the editable Complete books catalog pattern rather than the legacy page
+markup.
+
+The single-post template uses the post's Featured Image above its title. When
+an older post has no Featured Image assigned, the empty image band collapses;
+assigning the appropriate Media Library image restores the prototype layout.
 
 WordPress stores Site Editor customizations in the database. If a template has
 already been customized, reset it in the Site Editor to see later changes made

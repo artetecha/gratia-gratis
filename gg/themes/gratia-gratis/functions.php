@@ -74,3 +74,46 @@ function gratia_gratis_register_block_styles() {
 	);
 }
 add_action( 'init', 'gratia_gratis_register_block_styles' );
+
+/**
+ * Render the configured Mailchimp form, with an honest visual fallback when
+ * the plugin is installed but inactive (as can happen on a fresh preview).
+ *
+ * @param array $attributes Shortcode attributes.
+ * @return string
+ */
+function gratia_gratis_newsletter_form( $attributes ) {
+	$attributes = shortcode_atts(
+		array(
+			'variant' => 'compact',
+		),
+		$attributes,
+		'gratia_newsletter_form'
+	);
+
+	if ( shortcode_exists( 'mc4wp_form' ) ) {
+		return do_shortcode( '[mc4wp_form id="1158"]' );
+	}
+
+	$is_full = 'full' === sanitize_key( $attributes['variant'] );
+
+	ob_start();
+	?>
+	<form class="mc4wp-form gg-newsletter-fallback" aria-label="<?php esc_attr_e( 'Newsletter signup', 'gratia-gratis' ); ?>">
+		<div class="mc4wp-form-fields">
+			<?php if ( $is_full ) : ?>
+				<p><label><?php esc_html_e( 'First name', 'gratia-gratis' ); ?><input type="text" autocomplete="given-name" disabled></label></p>
+				<p><label><?php esc_html_e( 'Last name', 'gratia-gratis' ); ?><input type="text" autocomplete="family-name" disabled></label></p>
+			<?php endif; ?>
+			<p><label><?php esc_html_e( 'Email address', 'gratia-gratis' ); ?><input type="email" autocomplete="email" disabled></label></p>
+			<?php if ( $is_full ) : ?>
+				<p class="gg-newsletter-options"><label><input type="checkbox" checked disabled> <?php esc_html_e( 'Ministry updates', 'gratia-gratis' ); ?></label><label><input type="checkbox" checked disabled> <?php esc_html_e( 'New writing', 'gratia-gratis' ); ?></label></p>
+			<?php endif; ?>
+			<p><input type="submit" value="<?php esc_attr_e( 'Subscribe →', 'gratia-gratis' ); ?>" disabled></p>
+		</div>
+		<p class="gg-newsletter-status"><?php esc_html_e( 'Newsletter signup is temporarily unavailable on this preview.', 'gratia-gratis' ); ?></p>
+	</form>
+	<?php
+	return (string) ob_get_clean();
+}
+add_shortcode( 'gratia_newsletter_form', 'gratia_gratis_newsletter_form' );

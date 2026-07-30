@@ -25,11 +25,13 @@
 			<!-- wp:navigation-link {"label":"Contact","url":"/contact-us/","kind":"custom","isTopLevelLink":true} /-->
 		<!-- /wp:navigation -->
 
-		<!-- wp:buttons -->
+		<!-- wp:group {"className":"gg-header-actions","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+		<div class="wp-block-group gg-header-actions"><!-- wp:paragraph {"className":"gg-meta"} --><p class="gg-meta"><a href="/?s=">Search</a></p><!-- /wp:paragraph --><!-- wp:buttons -->
 		<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-outline gg-header-subscribe"} -->
 		<div class="wp-block-button is-style-outline gg-header-subscribe"><a class="wp-block-button__link wp-element-button" href="#subscribe">Subscribe</a></div>
 		<!-- /wp:button --></div>
-		<!-- /wp:buttons -->
+		<!-- /wp:buttons --></div>
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 </div>

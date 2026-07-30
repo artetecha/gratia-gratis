@@ -54,6 +54,8 @@ a:hover {
 
 .gg-eyebrow {
 	color: var(--wp--preset--color--quiet);
+	letter-spacing: 0.13em;
+	line-height: 1.2;
 }
 
 .has-olive-background-color .gg-eyebrow,
@@ -109,6 +111,7 @@ a:hover {
 
 .gg-home-hero-inner {
 	width: 100%;
+	gap: 0;
 }
 
 .gg-home-copy,

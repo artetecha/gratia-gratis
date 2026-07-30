@@ -488,6 +488,10 @@ a:hover {
 	align-self: end;
 }
 
+.gg-newsletter > .wp-block-columns > .wp-block-column:last-child > p:empty {
+	display: none;
+}
+
 .gg-newsletter h2 {
 	margin-bottom: 1.5rem;
 	font-size: clamp(3rem, 6.5vw, 6rem);

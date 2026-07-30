@@ -551,6 +551,26 @@ a:hover {
 	margin: 0;
 }
 
+.gg-newsletter .mc4wp-form-fields > div br {
+	display: none;
+}
+
+.gg-newsletter .mc4wp-form-fields > div > p:nth-child(1) > label,
+.gg-newsletter .mc4wp-form-fields > div > p:nth-child(2) > label {
+	display: block;
+	margin-bottom: 0.55rem;
+}
+
+.gg-newsletter .mc4wp-form-fields > div > p:nth-child(1) > input,
+.gg-newsletter .mc4wp-form-fields > div > p:nth-child(2) > input,
+.gg-newsletter .mc4wp-form-fields > div > p:nth-child(3) input {
+	display: block;
+}
+
+.gg-newsletter .mc4wp-form-fields > div > p:nth-child(3) input {
+	margin-top: 0.55rem;
+}
+
 .gg-newsletter .mc4wp-form-fields > p:nth-child(n + 3),
 .gg-newsletter .mc4wp-form-fields > div > p:nth-child(n + 3) {
 	grid-column: 1 / -1;
@@ -564,6 +584,7 @@ a:hover {
 	gap: 1rem 2rem;
 	font-family: var(--wp--preset--font-family--sans);
 	font-size: 0.78rem;
+	line-height: 1.4;
 }
 
 .gg-newsletter-options label,
@@ -579,10 +600,6 @@ a:hover {
 }
 
 .gg-newsletter .mc4wp-form-fields > div > p:nth-child(4) > label:first-child {
-	flex-basis: 100%;
-}
-
-.gg-newsletter .mc4wp-form-fields > div > p:nth-child(4) br {
 	display: none;
 }
 

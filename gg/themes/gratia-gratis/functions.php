@@ -26,7 +26,8 @@ add_action( 'after_setup_theme', 'gratia_gratis_setup' );
  */
 function gratia_gratis_enqueue_styles() {
 	$stylesheet_path = get_theme_file_path( 'assets/css/theme.css' );
-	$version         = file_exists( $stylesheet_path ) ? (string) filemtime( $stylesheet_path ) : wp_get_theme()->get( 'Version' );
+	$stylesheet_hash = file_exists( $stylesheet_path ) ? md5_file( $stylesheet_path ) : false;
+	$version         = $stylesheet_hash ? substr( $stylesheet_hash, 0, 12 ) : wp_get_theme()->get( 'Version' );
 
 	wp_enqueue_style(
 		'gratia-gratis',

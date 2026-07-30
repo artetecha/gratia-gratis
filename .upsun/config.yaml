@@ -22,7 +22,6 @@ applications:
     relationships:
       database: "ggdb:mysql"
       rediscache: "redis:redis"
-      essearch: "es:elasticsearch"
 
     # Preserve the data behind the legacy Platform.sh local mounts. Changing
     # these to storage would attach new, empty volumes.
@@ -86,9 +85,6 @@ services:
     type: mariadb:11.8
   redis:
     type: redis:8.0
-  # ElasticPress search features are active in production.
-  es:
-    type: elasticsearch:7.10
 
 routes:
   "https://www.gratia.gratis/":

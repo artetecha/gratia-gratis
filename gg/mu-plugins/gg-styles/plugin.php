@@ -16,4 +16,14 @@ add_action( 'wp_enqueue_scripts', function() {
 		);
 
 	}
+
+	// Jetpack previously supplied the layout for saved tiled-gallery blocks.
+	if ( file_exists( plugin_dir_path( __FILE__ ) . 'legacy-tiled-gallery.css' ) ) {
+		wp_enqueue_style(
+			'gratia-legacy-tiled-gallery',
+			plugins_url( 'legacy-tiled-gallery.css', __FILE__ ),
+			array(),
+			'1.0.0'
+		);
+	}
 });

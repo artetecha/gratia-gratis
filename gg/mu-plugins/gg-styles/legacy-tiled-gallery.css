@@ -1,0 +1,69 @@
+/* Preserve the layout of saved Jetpack tiled-gallery blocks after removal. */
+
+.tiled-gallery__gallery {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 0;
+}
+
+.tiled-gallery__row {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: 100%;
+	margin: 0;
+}
+
+.tiled-gallery__row + .tiled-gallery__row {
+	margin-top: 4px;
+}
+
+.tiled-gallery__col {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-width: 0;
+	margin: 0;
+}
+
+.tiled-gallery__col + .tiled-gallery__col {
+	margin-inline-start: 4px;
+}
+
+.tiled-gallery__item {
+	position: relative;
+	display: flex;
+	flex-grow: 1;
+	justify-content: center;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.tiled-gallery__item + .tiled-gallery__item {
+	margin-top: 4px;
+}
+
+.tiled-gallery__item > a,
+.tiled-gallery__item > a > img,
+.tiled-gallery__item > img {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+	object-fit: cover;
+	object-position: center;
+}
+
+.wp-block-jetpack-tiled-gallery.is-style-circle .tiled-gallery__item img {
+	aspect-ratio: 1;
+	border-radius: 50%;
+}
+
+.wp-block-jetpack-tiled-gallery.is-style-square .tiled-gallery__item img {
+	aspect-ratio: 1;
+}

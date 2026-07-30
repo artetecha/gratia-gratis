@@ -47,11 +47,9 @@ wp-admin on Upsun.
 
 ## Upsun runtime and caching
 
-The `gg` application uses PHP 8.4 with MariaDB, Redis, and Elasticsearch.
-ElasticPress and Jetpack remain installed because their production features
-are active. Uploads and cache files retain the legacy mount data through
-`source: instance`. `www.gratia.gratis` is canonical and the apex redirects to
-it.
+The `gg` application uses PHP 8.4 with MariaDB and Redis. Uploads and cache
+files retain the legacy mount data through `source: instance`.
+`www.gratia.gratis` is canonical and the apex redirects to it.
 
 Cloudflare provides CDN and security services and caches static assets. The
 Upsun router is the only full-page HTML cache. WordPress page-cache plugins
@@ -95,10 +93,11 @@ exception or return `false` to abort deployment and leave the migration
 pending. Successful migrations are recorded in the database and follow cloned
 data.
 
-The included migrations remove only Really Simple Security, the WordPress
-Cloudflare page-cache plugin, and WordPress Importer state. User-authored and
-previously imported content is preserved. Jetpack and ElasticPress cleanup is
-deliberately excluded after the production usage audit.
+The included migrations remove obsolete plugin activation and settings state,
+including Really Simple Security, the WordPress Cloudflare page-cache plugin,
+WordPress Importer, ElasticPress, and Jetpack. User-authored and previously
+imported content is preserved, including content created with Jetpack blocks.
+The site styles MU plugin retains the layout of saved tiled-gallery blocks.
 
 ## Cron, CI, and backups
 

@@ -7,8 +7,10 @@ drop-in are assembled into the ignored `wordpress/` directory. Do not edit
 generated files there.
 
 The production site currently uses Twenty Twenty-Four. The build preserves
-that active theme while removing the other bundled Twenty themes. No theme or
-branding code is imported from Per Grazia.
+that active theme while removing the other bundled Twenty themes, and copies
+the source-controlled Gratia Gratis block theme from `themes/gratia-gratis`
+into the generated WordPress tree. Existing environments are not switched
+automatically; fresh installs use Gratia Gratis as their default theme.
 
 ## Local installation
 
@@ -39,11 +41,31 @@ switching branches or when `composer.lock` changes.
 
 `composer install` and `composer update` both run the `postbuild` script. It
 copies WordPress configuration and project MU plugins, installs `upsun-wp` and
-its loader, installs the Redis object-cache drop-in, preserves Twenty
-Twenty-Four, and removes unmanaged bundled plugins and inactive Twenty themes.
+its loader, installs the Redis object-cache drop-in, installs the custom Gratia
+Gratis theme, preserves Twenty Twenty-Four for the current production site,
+and removes unmanaged bundled plugins and inactive Twenty themes.
 
 Add WordPress plugins to `composer.json`; do not install or update them from
 wp-admin on Upsun.
+
+## Gratia Gratis block theme
+
+The custom theme is fully block based. Its source lives in
+`themes/gratia-gratis`; never edit the generated copy under `wordpress/`.
+Templates are composed from template parts and PHP patterns, global design
+tokens live in `theme.json`, and the small CSS layer under `assets/css` covers
+responsive and plugin-form details that cannot be expressed cleanly through
+Global Styles.
+
+After visual review on a non-production environment, activate it explicitly:
+
+```bash
+wp --path=wordpress theme activate gratia-gratis
+```
+
+Activating the theme does not overwrite content or stored Site Editor
+customizations. Existing template customizations can override theme files, so
+review or clear those customizations when comparing the packaged templates.
 
 ## Upsun runtime and caching
 

@@ -1,0 +1,1327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A typography-led homepage prototype for Gratia Gratis, a Free Grace ministry to Italy.">
+  <title>Gratia Gratis — A Free Grace ministry to Italy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f9f9f9;
+      --white: #ffffff;
+      --parchment: #eee3c7;
+      --olive: #62674d;
+      --gold: #bd974d;
+      --ink: #111111;
+      --quiet: #666666;
+      --line: #d8d8d8;
+      --serif: "Cardo", "Iowan Old Style", Baskerville, Georgia, serif;
+      --sans: "Inter", Arial, sans-serif;
+      --max: 1440px;
+      --gutter: clamp(1.25rem, 4vw, 4.5rem);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: .22em;
+    }
+
+    a:hover { text-decoration-thickness: 2px; }
+
+    img { display: block; max-width: 100%; }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: .75rem;
+      left: .75rem;
+      padding: .7rem 1rem;
+      transform: translateY(-160%);
+      background: var(--ink);
+      color: var(--paper);
+      font: 600 .75rem/1 var(--sans);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .eyebrow,
+    .meta,
+    .nav,
+    .button,
+    .section-number,
+    .field-label,
+    .footer-heading {
+      font-family: var(--sans);
+    }
+
+    .eyebrow {
+      margin: 0 0 1.25rem;
+      color: var(--quiet);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .13em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .site-header {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 1.4rem var(--gutter);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      width: max-content;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+    }
+
+    .brand-name {
+      font: 700 1.05rem/1 var(--serif);
+      letter-spacing: -.02em;
+    }
+
+    .desktop-nav ul,
+    .utility-nav,
+    .footer-links,
+    .article-list,
+    .service-list,
+    .book-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .desktop-nav ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(1.2rem, 2.5vw, 2.5rem);
+    }
+
+    .desktop-nav a,
+    .utility-nav a,
+    .menu summary {
+      font: 500 .72rem/1 var(--sans);
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .desktop-nav a:hover,
+    .utility-nav a:hover { text-decoration: underline; }
+
+    .utility-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+
+    .utility-nav .subscribe {
+      padding: .65rem .9rem;
+      border: 1px solid var(--ink);
+    }
+
+    .menu { display: none; }
+
+    .hero {
+      width: min(100%, var(--max));
+      min-height: min(860px, calc(100vh - 95px));
+      margin: 0 auto;
+      padding: clamp(4.5rem, 10vw, 9rem) var(--gutter) 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(15rem, .37fr);
+      column-gap: clamp(2rem, 7vw, 8rem);
+      align-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-copy { grid-column: 1 / -1; }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1 {
+      max-width: 12ch;
+      margin-bottom: 2.8rem;
+      font-size: clamp(4rem, 10vw, 9.5rem);
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: .88;
+    }
+
+    h1 em { font-weight: 400; }
+
+    .hero-statement {
+      max-width: 42ch;
+      margin-bottom: 0;
+      font-size: clamp(1.35rem, 2.3vw, 2rem);
+      line-height: 1.28;
+    }
+
+    .hero-note {
+      align-self: end;
+      margin: 5rem 0 0;
+      padding-top: 1rem;
+      border-top: 1px solid var(--ink);
+      color: var(--quiet);
+      font-size: 1rem;
+    }
+
+    .hero-action {
+      align-self: end;
+      justify-self: end;
+      margin-top: 5rem;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 3.25rem;
+      padding: .85rem 1.15rem;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      border: 1px solid var(--ink);
+      background: transparent;
+      color: var(--ink);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .button:hover {
+      background: var(--ink);
+      color: var(--paper);
+      text-decoration: none;
+    }
+
+    .button-arrow { font-size: 1.2rem; font-weight: 400; }
+
+    .section {
+      width: 100%;
+      margin: 0 auto;
+      padding: clamp(5rem, 10vw, 9rem) max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+      border-bottom: 1px solid var(--line);
+    }
+
+    #mission,
+    #books { background: var(--parchment); }
+
+    #practice,
+    #writing {
+      background: var(--olive);
+      color: var(--paper);
+    }
+
+    #practice .section-number,
+    #practice figcaption,
+    #writing .section-number,
+    #writing .journal-intro p:not(.section-number),
+    #writing .article-meta,
+    #writing .article-arrow {
+      color: rgba(249, 249, 249, .72);
+    }
+
+    #practice figcaption { border-color: rgba(249, 249, 249, .3); }
+
+    #writing .article-list { border-top-color: var(--paper); }
+
+    #writing .article-list li {
+      border-bottom-color: rgba(249, 249, 249, .32);
+    }
+
+    #writing .article-list li:last-child { border-bottom-color: var(--paper); }
+
+    #writing .button {
+      border-color: var(--paper);
+      color: var(--paper);
+    }
+
+    #writing .button:hover {
+      background: var(--paper);
+      color: var(--olive);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(11rem, .37fr) minmax(0, 1fr);
+      gap: clamp(2rem, 7vw, 8rem);
+      margin-bottom: clamp(4rem, 8vw, 8rem);
+    }
+
+    .section-number {
+      color: var(--quiet);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      max-width: 18ch;
+      margin: 0;
+      font-size: clamp(2.6rem, 6vw, 5.8rem);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: .98;
+    }
+
+    .mission-intro {
+      display: grid;
+      grid-template-columns: minmax(11rem, .37fr) minmax(0, 1fr);
+      gap: clamp(2rem, 7vw, 8rem);
+      margin-bottom: clamp(4rem, 9vw, 8rem);
+    }
+
+    .mission-intro blockquote {
+      margin: 0;
+      font-size: clamp(2rem, 4.5vw, 4.5rem);
+      letter-spacing: -.035em;
+      line-height: 1.04;
+    }
+
+    .mission-intro blockquote em { font-weight: 400; }
+
+    .mission-intro p {
+      max-width: 32ch;
+      margin: 0;
+      color: var(--quiet);
+      font-size: 1.05rem;
+    }
+
+    .service-list { border-top: 1px solid var(--line); }
+
+    .service-list li {
+      display: grid;
+      grid-template-columns: minmax(11rem, .37fr) minmax(0, 1fr) 2rem;
+      gap: clamp(2rem, 7vw, 8rem);
+      align-items: baseline;
+      padding: 1.35rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-index {
+      color: var(--quiet);
+      font: 500 .7rem/1 var(--sans);
+      letter-spacing: .08em;
+    }
+
+    .service-name {
+      font-size: clamp(1.65rem, 3.2vw, 3rem);
+      letter-spacing: -.03em;
+      line-height: 1.1;
+    }
+
+    .service-mark {
+      color: var(--quiet);
+      font: 400 1rem/1 var(--sans);
+      text-align: right;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(18rem, .7fr);
+      gap: clamp(2rem, 5vw, 6rem);
+      align-items: end;
+    }
+
+    .feature-art {
+      min-height: clamp(360px, 52vw, 720px);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .feature-art-inner {
+      width: min(76%, 650px);
+      text-align: center;
+    }
+
+    .feature-art .small {
+      margin-bottom: 2rem;
+      font: 500 .7rem/1.2 var(--sans);
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .feature-art .quote {
+      margin-bottom: 2rem;
+      font-size: clamp(2.5rem, 6.3vw, 6.5rem);
+      letter-spacing: -.05em;
+      line-height: .91;
+    }
+
+    .feature-art .reference {
+      margin: 0;
+      font-style: italic;
+    }
+
+    .feature-copy h3 {
+      margin-bottom: 1.5rem;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      font-weight: 400;
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+
+    .feature-copy > p:not(.eyebrow) {
+      max-width: 35ch;
+      color: var(--quiet);
+    }
+
+    .feature-copy .button { margin-top: 1.25rem; }
+
+    .book-list { border-top: 1px solid var(--line); }
+
+    .book-list li {
+      display: grid;
+      grid-template-columns: 4.5rem minmax(0, 1fr) minmax(7rem, .25fr) auto;
+      gap: 1rem;
+      align-items: center;
+      min-height: 7rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .book-number,
+    .book-author,
+    .book-status {
+      font-family: var(--sans);
+      font-size: .72rem;
+    }
+
+    .book-number,
+    .book-author { color: var(--quiet); }
+
+    .book-title {
+      font-size: clamp(1.4rem, 2.6vw, 2.4rem);
+      letter-spacing: -.025em;
+      line-height: 1.1;
+    }
+
+    .book-status {
+      padding: .4rem .6rem;
+      border: 1px solid var(--line);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      white-space: nowrap;
+    }
+
+    .writing-grid {
+      display: grid;
+      grid-template-columns: minmax(14rem, .38fr) minmax(0, 1fr);
+      gap: clamp(2rem, 7vw, 8rem);
+    }
+
+    .writing-aside {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      min-height: 29rem;
+    }
+
+    .writing-aside .section-title { max-width: 8ch; }
+
+    .article-list { border-top: 1px solid var(--ink); }
+
+    .article-list li { border-bottom: 1px solid var(--line); }
+
+    .article-link {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 7.5rem 1.5rem;
+      gap: 1.2rem;
+      align-items: center;
+      padding: 1.7rem 0;
+      text-decoration: none;
+    }
+
+    .article-link:hover .article-title { text-decoration: underline; }
+
+    .article-title {
+      font-size: clamp(1.5rem, 3vw, 2.7rem);
+      letter-spacing: -.03em;
+      line-height: 1.12;
+    }
+
+    .article-meta {
+      color: var(--quiet);
+      font: 500 .68rem/1.5 var(--sans);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .article-arrow {
+      color: var(--quiet);
+      font: 400 1.1rem/1 var(--sans);
+      text-align: right;
+    }
+
+    .newsletter {
+      width: 100%;
+      margin: 0 auto;
+      padding: clamp(5rem, 10vw, 9rem) max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+      display: grid;
+      grid-template-columns: minmax(14rem, .38fr) minmax(0, 1fr);
+      gap: clamp(3rem, 7vw, 8rem);
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .newsletter h2 {
+      margin-bottom: 1.5rem;
+      font-size: clamp(3rem, 6.5vw, 6rem);
+      font-weight: 400;
+      letter-spacing: -.05em;
+      line-height: .95;
+    }
+
+    .newsletter-copy p {
+      max-width: 28ch;
+      color: #b7b7b7;
+    }
+
+    .newsletter-form {
+      align-self: end;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 1.5rem;
+    }
+
+    .field-email { grid-column: 1 / -1; }
+
+    .field-label {
+      display: block;
+      margin-bottom: .55rem;
+      color: #b7b7b7;
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .newsletter input[type="text"],
+    .newsletter input[type="email"] {
+      width: 100%;
+      padding: .75rem 0;
+      border: 0;
+      border-bottom: 1px solid #777;
+      border-radius: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--paper);
+      font: 400 1.35rem/1.3 var(--serif);
+    }
+
+    .newsletter input:focus { border-bottom-color: var(--paper); }
+
+    .newsletter-options {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      font: 400 .78rem/1.4 var(--sans);
+    }
+
+    .newsletter-options label {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+    }
+
+    .newsletter-options input { accent-color: var(--paper); }
+
+    .newsletter .button {
+      grid-column: 1 / -1;
+      width: max-content;
+      border-color: var(--paper);
+      color: var(--paper);
+    }
+
+    .newsletter .button:hover {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .site-footer {
+      width: 100%;
+      margin: 0 auto;
+      padding: 3.5rem max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter))) 1.5rem;
+      background: var(--white);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 4rem;
+    }
+
+    .footer-tagline {
+      max-width: 16ch;
+      margin: 1.2rem 0 0;
+      font-size: 1.15rem;
+    }
+
+    .footer-heading {
+      margin-bottom: 1rem;
+      color: var(--quiet);
+      font-size: .67rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .footer-links li + li { margin-top: .55rem; }
+
+    .footer-links a { font-size: 1rem; }
+
+    .footer-base {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      color: var(--quiet);
+      font: 400 .68rem/1.5 var(--sans);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    /* Revised visual middle */
+    .mission-visual {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(17rem, .45fr);
+      gap: clamp(1.5rem, 4vw, 4.5rem);
+      align-items: end;
+      margin-bottom: clamp(5rem, 10vw, 9rem);
+    }
+
+    .image-frame {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #e9e1ce;
+    }
+
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mission-image { aspect-ratio: 3 / 2; }
+
+    .mission-aside blockquote {
+      margin: 0 0 1.5rem;
+      font-size: clamp(1.65rem, 3vw, 2.8rem);
+      letter-spacing: -.03em;
+      line-height: 1.08;
+    }
+
+    .mission-aside p:last-child {
+      margin: 0;
+      color: var(--quiet);
+      font-size: 1rem;
+    }
+
+    .tell-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tell-heading h3 {
+      margin: 0;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: .95;
+    }
+
+    .tell-heading p {
+      max-width: 25ch;
+      margin: 0;
+      color: var(--quiet);
+      font-size: 1rem;
+    }
+
+    .tell-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .tell-card {
+      min-height: 17rem;
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--line);
+    }
+
+    .tell-card:last-child { border-right: 0; }
+
+    .tell-letter {
+      font-size: clamp(5rem, 10vw, 9rem);
+      letter-spacing: -.08em;
+      line-height: .75;
+    }
+
+    .tell-word {
+      font: 600 .75rem/1.3 var(--sans);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(14rem, .4fr) minmax(14rem, .4fr);
+      gap: clamp(1rem, 2.5vw, 2rem);
+      align-items: stretch;
+    }
+
+    .people-card { margin: 0; }
+
+    .people-card .image-frame { height: clamp(25rem, 48vw, 43rem); }
+
+    .people-card:not(.people-card-main) .image-frame {
+      height: clamp(25rem, 48vw, 43rem);
+    }
+
+    .people-card-main img { object-position: 50% center; }
+
+    .people-card figcaption {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: .85rem;
+      color: var(--quiet);
+      font: 500 .68rem/1.45 var(--sans);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .people-card figcaption span:last-child { text-align: right; }
+
+    .cover-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(2rem, 4vw, 5rem);
+      align-items: start;
+    }
+
+    .cover-card {
+      min-width: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .cover-card:nth-child(even) { margin-top: clamp(4rem, 8vw, 8rem); }
+
+    .cover-card a {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+    }
+
+    .cover-art {
+      overflow: visible;
+    }
+
+    .cover-art img {
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
+      transition: transform .25s ease;
+    }
+
+    .cover-card a:hover .cover-art img { transform: scale(1.025); }
+
+    .books-action { margin-top: clamp(3rem, 7vw, 6rem); }
+
+    .cover-info {
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: .45rem 1rem;
+      align-items: start;
+    }
+
+    .cover-title {
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      letter-spacing: -.025em;
+      line-height: 1.12;
+    }
+
+    .cover-meta,
+    .cover-state {
+      color: var(--quiet);
+      font: 500 .65rem/1.4 var(--sans);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .cover-meta { grid-column: 1; }
+
+    .cover-state {
+      grid-column: 2;
+      grid-row: 1;
+      padding-top: .25rem;
+      white-space: nowrap;
+    }
+
+    .journal-layout {
+      display: grid;
+      grid-template-columns: minmax(15rem, .48fr) minmax(0, 1fr);
+      gap: clamp(2rem, 7vw, 8rem);
+      align-items: start;
+    }
+
+    .journal-intro {
+      position: sticky;
+      top: 2rem;
+    }
+
+    .journal-intro .section-title {
+      max-width: 8ch;
+      margin-bottom: 2rem;
+    }
+
+    .journal-intro p:not(.section-number) {
+      max-width: 27ch;
+      margin-bottom: 2rem;
+      color: var(--quiet);
+      font-size: 1rem;
+    }
+
+    .journal-layout .article-list li:last-child { border-bottom-color: var(--ink); }
+
+    .donation {
+      width: 100%;
+      margin: 0 auto;
+      padding: clamp(5rem, 10vw, 9rem) max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+      display: grid;
+      grid-template-columns: minmax(13rem, .34fr) minmax(0, 1fr);
+      gap: clamp(3rem, 7vw, 8rem);
+      align-items: end;
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    .donation-mark {
+      font-size: clamp(7rem, 15vw, 14rem);
+      font-weight: 400;
+      letter-spacing: -.08em;
+      line-height: .62;
+    }
+
+    .donation-content h2 {
+      max-width: 11ch;
+      margin-bottom: 1.5rem;
+      font-size: clamp(3rem, 7vw, 6.8rem);
+      font-weight: 400;
+      letter-spacing: -.05em;
+      line-height: .94;
+    }
+
+    .donation-content > p:not(.eyebrow) {
+      max-width: 38ch;
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .donation-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem 1.5rem;
+    }
+
+    .donation-note {
+      margin: 0;
+      font: 500 .68rem/1.5 var(--sans);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 860px) {
+      .site-header {
+        grid-template-columns: 1fr auto;
+      }
+
+      .desktop-nav,
+      .utility-nav { display: none; }
+
+      .menu { display: block; }
+
+      .menu summary {
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .menu summary::-webkit-details-marker { display: none; }
+
+      .menu[open] .mobile-panel { display: grid; }
+
+      .mobile-panel {
+        position: absolute;
+        z-index: 10;
+        top: 76px;
+        right: 0;
+        left: 0;
+        display: none;
+        gap: 0;
+        padding: 1.2rem var(--gutter) 2rem;
+        border-bottom: 1px solid var(--ink);
+        background: var(--paper);
+      }
+
+      .mobile-panel a {
+        padding: .8rem 0;
+        border-bottom: 1px solid var(--line);
+        font: 400 1.4rem/1.2 var(--serif);
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-copy,
+      .hero-note,
+      .hero-action { grid-column: auto; }
+
+      .hero-action {
+        justify-self: start;
+        margin-top: 2.5rem;
+      }
+
+      .section-heading,
+      .mission-intro,
+      .writing-grid,
+      .newsletter {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading { gap: 1.2rem; }
+
+      .service-list li {
+        grid-template-columns: 3rem minmax(0, 1fr) 1.5rem;
+        gap: .75rem;
+      }
+
+      .feature { grid-template-columns: 1fr; }
+
+      .writing-aside {
+        min-height: 0;
+        gap: 2rem;
+      }
+
+      .mission-visual,
+      .journal-layout,
+      .donation {
+        grid-template-columns: 1fr;
+      }
+
+      .donation-mark { line-height: .75; }
+
+      .tell-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .tell-card:nth-child(2) { border-right: 0; }
+
+      .tell-card:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+
+      .people-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .people-card-main { grid-column: 1 / -1; }
+
+      .people-card-main .image-frame { height: min(78vw, 38rem); }
+
+      .people-card:not(.people-card-main) .image-frame { height: min(85vw, 34rem); }
+
+      .cover-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .cover-card:nth-child(even) { margin-top: 4rem; }
+
+      .journal-intro { position: static; }
+    }
+
+    @media (max-width: 580px) {
+      body { font-size: 16px; }
+
+      .brand-name { display: none; }
+
+      .hero { padding-top: 4rem; }
+
+      h1 { font-size: clamp(3.5rem, 20vw, 6rem); }
+
+      .book-list li {
+        grid-template-columns: 2.5rem minmax(0, 1fr);
+        gap: .75rem;
+        padding: 1.25rem 0;
+      }
+
+      .book-author,
+      .book-status { grid-column: 2; }
+
+      .book-status { width: max-content; }
+
+      .article-link {
+        grid-template-columns: 1fr 1.5rem;
+      }
+
+      .article-meta { grid-row: 2; }
+
+      .article-arrow {
+        grid-column: 2;
+        grid-row: 1 / 3;
+      }
+
+      .newsletter-form { grid-template-columns: 1fr; }
+
+      .newsletter-form > * { grid-column: 1; }
+
+      .footer-main { grid-template-columns: 1fr 1fr; }
+
+      .footer-brand { grid-column: 1 / -1; }
+
+      .footer-base { flex-direction: column; }
+
+      .mission-image { aspect-ratio: 4 / 3; }
+
+      .tell-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .tell-card {
+        min-height: 12rem;
+        padding: 1rem;
+      }
+
+      .tell-letter { font-size: 5rem; }
+
+      .people-grid,
+      .cover-grid { grid-template-columns: 1fr; }
+
+      .cover-card:nth-child(even) { margin-top: 0; }
+
+      .people-card-main { grid-column: auto; }
+
+      .people-card .image-frame,
+      .people-card-main .image-frame,
+      .people-card:not(.people-card-main) .image-frame { height: auto; }
+
+      .people-card .image-frame { aspect-ratio: 4 / 5; }
+
+      .people-card-main .image-frame { aspect-ratio: 4 / 3; }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Gratia Gratis, home">
+      <img src="https://www.gratia.gratis/wp-content/uploads/2025/04/cropped-logo-copy-150x150.png" alt="" width="46" height="46">
+      <span class="brand-name">Gratia Gratis</span>
+    </a>
+
+    <nav class="desktop-nav nav" aria-label="Primary navigation">
+      <ul>
+        <li><a href="blog.html">Content</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="page.html">About us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <ul class="utility-nav nav">
+      <li><a href="blog.html#filter" aria-label="Search Gratia Gratis">Search</a></li>
+      <li><a class="subscribe" href="#subscribe">Subscribe</a></li>
+    </ul>
+
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav class="mobile-panel" aria-label="Mobile navigation">
+        <a href="blog.html">Content</a>
+        <a href="books.html">Books</a>
+        <a href="page.html">About us</a>
+        <a href="contact.html">Contact</a>
+        <a href="#subscribe">Subscribe</a>
+      </nav>
+    </details>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">A Free Grace ministry to Italy</p>
+        <h1 id="hero-title">Grace, freely <em>given.</em></h1>
+        <p class="hero-statement">Our mission is to TELL the unadulterated good news of Christ—Teach, Exalt, Love, Live (out).</p>
+      </div>
+      <p class="hero-note">Bilingual ministry in English and Italian.<br>Based in Italy, serving wherever needed.</p>
+      <div class="hero-action">
+        <a class="button" href="#mission">Discover our mission <span class="button-arrow" aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="mission" aria-labelledby="mission-title">
+      <div class="section-heading">
+        <span class="section-number">01 / Our mission</span>
+        <h2 class="section-title" id="mission-title">A passion for the Gospel.</h2>
+      </div>
+
+      <div class="mission-visual">
+        <figure class="image-frame mission-image">
+          <img src="assets/mission-fellowship.png" alt="Adults and children sharing fellowship and Bible study in an Italian courtyard" loading="lazy">
+        </figure>
+        <div class="mission-aside">
+          <p class="eyebrow">Why we serve</p>
+          <blockquote>Grace is not merely something to understand. It is good news to be shared and lived.</blockquote>
+          <p>We believe God’s loving grace carries the healing power every healthy Christian community needs to flourish.</p>
+        </div>
+      </div>
+
+      <div class="tell-heading">
+        <h3>We TELL it.</h3>
+        <p>One memorable word. Four commitments that shape every part of the ministry.</p>
+      </div>
+      <div class="tell-grid" aria-label="TELL means Teach, Exalt, Love and Live out">
+        <div class="tell-card"><span class="tell-letter" aria-hidden="true">T</span><span class="tell-word">Teach</span></div>
+        <div class="tell-card"><span class="tell-letter" aria-hidden="true">E</span><span class="tell-word">Exalt</span></div>
+        <div class="tell-card"><span class="tell-letter" aria-hidden="true">L</span><span class="tell-word">Love</span></div>
+        <div class="tell-card"><span class="tell-letter" aria-hidden="true">L</span><span class="tell-word">Live (out)</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="practice" aria-labelledby="practice-title">
+      <div class="section-heading">
+        <span class="section-number">02 / In practice</span>
+        <h2 class="section-title" id="practice-title">Faith made visible.</h2>
+      </div>
+
+      <div class="people-grid">
+        <figure class="people-card people-card-main">
+          <div class="image-frame">
+            <img src="https://www.gratia.gratis/wp-content/uploads/2024/10/IMG_1044-scaled.jpg" alt="Vince and Manuela with their family in the Italian mountains" loading="lazy">
+          </div>
+          <figcaption><span>Home &amp; hospitality</span><span>Italy</span></figcaption>
+        </figure>
+        <figure class="people-card">
+          <div class="image-frame">
+            <img src="https://www.gratia.gratis/wp-content/uploads/2024/09/441640896_823218619855397_8026132198820821008_n.jpg" alt="Vince speaking at a teaching event" loading="lazy">
+          </div>
+          <figcaption><span>Preaching</span><span>English &amp; Italian</span></figcaption>
+        </figure>
+        <figure class="people-card">
+          <div class="image-frame">
+            <img src="https://gratia.gratis/wp-content/uploads/2024/09/441868047_823218696522056_5617256719420255276_n-768x1024.jpg" alt="Manuela holding an Italian book at a ministry event" loading="lazy">
+          </div>
+          <figcaption><span>Translation</span><span>Grace-centred books</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="books" aria-labelledby="books-title">
+      <div class="section-heading">
+        <span class="section-number">03 / Publishing</span>
+        <h2 class="section-title" id="books-title">Grace-centred books, in Italian.</h2>
+      </div>
+
+      <div class="cover-grid">
+        <article class="cover-card">
+          <a href="books.html" aria-label="Learn more about Un Solenne Avvertimento">
+            <div class="cover-art"><img src="https://www.gratia.gratis/wp-content/uploads/2024/10/71sWk7J32pL._SL1500_.jpg" alt="Cover of Un Solenne Avvertimento" width="1000" height="1500" loading="lazy"></div>
+            <div class="cover-info"><span class="cover-title">Un Solenne Avvertimento</span><span class="cover-meta">Thomas Taylor</span><span class="cover-state">Published</span></div>
+          </a>
+        </article>
+        <article class="cover-card">
+          <a href="books.html" aria-label="Learn more about L’Eredità degli Affamati">
+            <div class="cover-art"><img src="https://www.gratia.gratis/wp-content/uploads/2024/10/61G5eqbv14L._SL1499_.jpg" alt="Cover of L’Eredità degli Affamati" width="1000" height="1499" loading="lazy"></div>
+            <div class="cover-info"><span class="cover-title">L’Eredità degli Affamati</span><span class="cover-meta">Zane C. Hodges</span><span class="cover-state">Published</span></div>
+          </a>
+        </article>
+        <article class="cover-card">
+          <a href="books.html" aria-label="Learn more about Dio è Spirito">
+            <div class="cover-art"><img src="https://www.gratia.gratis/wp-content/uploads/2024/10/cop-Dio-e-Spirito-scaled.jpg-1024x1007.webp" alt="Cover of Dio è Spirito" width="1024" height="1007" loading="lazy"></div>
+            <div class="cover-info"><span class="cover-title">Dio è Spirito</span><span class="cover-meta">William Lane Craig</span><span class="cover-state">Coming soon</span></div>
+          </a>
+        </article>
+        <article class="cover-card">
+          <a href="books.html" aria-label="Learn more about Dio è Ovunque">
+            <div class="cover-art"><img src="https://www.gratia.gratis/wp-content/uploads/2024/10/Libro-Dio-e-Ovunque.png.webp" alt="Cover of Dio è Ovunque" width="828" height="828" loading="lazy"></div>
+            <div class="cover-info"><span class="cover-title">Dio è Ovunque</span><span class="cover-meta">William Lane Craig</span><span class="cover-state">Coming soon</span></div>
+          </a>
+        </article>
+      </div>
+      <div class="books-action"><a class="button" href="books.html">View the full book list <span class="button-arrow" aria-hidden="true">→</span></a></div>
+    </section>
+
+    <section class="section" id="writing" aria-labelledby="writing-title">
+      <div class="journal-layout">
+        <div class="journal-intro">
+          <p class="section-number">04 / Journal</p>
+          <h2 class="section-title" id="writing-title">Watch, read, listen.</h2>
+          <p>Long-form Bible study, reflections, and teaching for those who want to look again—and more closely.</p>
+          <a class="button" href="blog.html">View all content <span class="button-arrow" aria-hidden="true">→</span></a>
+        </div>
+
+        <ol class="article-list">
+          <li>
+            <a class="article-link" href="post.html">
+              <span class="article-title">James 2 and the Demons Who Believe</span>
+              <span class="article-meta">Theology<br>27 July 2026</span>
+              <span class="article-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a class="article-link" href="post.html">
+              <span class="article-title">A Correction and a Concession</span>
+              <span class="article-meta">Reflections<br>7 July 2026</span>
+              <span class="article-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a class="article-link" href="post.html">
+              <span class="article-title">When Believing Is Never Enough</span>
+              <span class="article-meta">Theology<br>24 June 2026</span>
+              <span class="article-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="donation" id="donate" aria-labelledby="donation-title">
+      <div class="donation-mark" aria-hidden="true">+</div>
+      <div class="donation-content">
+        <p class="eyebrow">Support Gratia Gratis</p>
+        <h2 id="donation-title">Help grace travel farther.</h2>
+        <p>Your generosity helps translate and publish grace-centred books, supports teaching and preaching, and makes room for hospitality and fellowship in Italy.</p>
+        <div class="donation-actions">
+          <a class="button" href="contact.html">Ask about giving <span class="button-arrow" aria-hidden="true">→</span></a>
+          <p class="donation-note">Giving details available on request</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" id="subscribe" aria-labelledby="subscribe-title">
+      <div class="newsletter-copy">
+        <p class="eyebrow">The occasional letter</p>
+        <h2 id="subscribe-title">Stay in the loop.</h2>
+        <p>Ministry updates, new writing, and published translations—sent thoughtfully, never noisily.</p>
+      </div>
+
+      <form class="newsletter-form" action="#" method="post">
+        <div>
+          <label class="field-label" for="first-name">First name</label>
+          <input id="first-name" name="first-name" type="text" autocomplete="given-name">
+        </div>
+        <div>
+          <label class="field-label" for="last-name">Last name</label>
+          <input id="last-name" name="last-name" type="text" autocomplete="family-name">
+        </div>
+        <div class="field-email">
+          <label class="field-label" for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="newsletter-options">
+          <label><input type="checkbox" name="topics" value="ministry" checked> Ministry updates</label>
+          <label><input type="checkbox" name="topics" value="writing" checked> New writing</label>
+        </div>
+        <button class="button" type="submit">Subscribe <span class="button-arrow" aria-hidden="true">→</span></button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Gratia Gratis, home">
+          <img src="https://www.gratia.gratis/wp-content/uploads/2025/04/cropped-logo-copy-150x150.png" alt="" width="46" height="46">
+          <span class="brand-name">Gratia Gratis</span>
+        </a>
+        <p class="footer-tagline">A Free Grace ministry to Italy.</p>
+      </div>
+      <nav aria-label="About links">
+        <h2 class="footer-heading">About</h2>
+        <ul class="footer-links">
+          <li><a href="page.html">Our team</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+          <li><a href="contact.html">Join us</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Social links">
+        <h2 class="footer-heading">Follow</h2>
+        <ul class="footer-links">
+          <li><a href="https://www.facebook.com/gratia.gratis">Facebook</a></li>
+          <li><a href="https://youtube.com/playlist?list=PLRf-iytvL7m0lxY6EGStME5_LKsdSSU30&amp;si=eWQlKyr8hSle5pin">YouTube</a></li>
+          <li><a href="https://www.pergrazia.com/">Per Grazia</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 Gratia Gratis</span>
+      <span>Grace, freely given</span>
+    </div>
+  </footer>
+</body>
+</html>

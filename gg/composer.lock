@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc4482807a3a79e6d610a6830ae36ca1",
+    "content-hash": "0e89045f0cd04ff1df9617037aa94a82",
     "packages": [
         {
             "name": "artetecha/upsun-wp",

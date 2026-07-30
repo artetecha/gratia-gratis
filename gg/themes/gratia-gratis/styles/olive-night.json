@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "title": "Olive Night",
+  "styles": {
+    "color": {
+      "background": "#3f4332",
+      "text": "#f9f9f9"
+    },
+    "elements": {
+      "link": {
+        "color": { "text": "#eee3c7" }
+      }
+    },
+    "blocks": {
+      "core/navigation": {
+        "color": { "text": "#f9f9f9" }
+      }
+    }
+  }
+}
+

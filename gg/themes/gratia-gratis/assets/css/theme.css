@@ -503,6 +503,7 @@ a:hover {
 .gg-newsletter .mc4wp-form input,
 .gg-newsletter .mc4wp-form select,
 .gg-newsletter .mc4wp-form textarea {
+	margin: 0;
 	color: var(--wp--preset--color--paper);
 }
 
@@ -571,6 +572,10 @@ a:hover {
 	margin-top: 0.55rem;
 }
 
+.gg-newsletter .mc4wp-form-fields > div > p:nth-child(3) > label {
+	margin-bottom: 0;
+}
+
 .gg-newsletter .mc4wp-form-fields > p:nth-child(n + 3),
 .gg-newsletter .mc4wp-form-fields > div > p:nth-child(n + 3) {
 	grid-column: 1 / -1;
@@ -596,6 +601,7 @@ a:hover {
 	font-size: inherit;
 	font-weight: 400;
 	letter-spacing: normal;
+	margin-bottom: 0;
 	text-transform: none;
 }
 

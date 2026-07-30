@@ -6,8 +6,8 @@
  * Description: An asymmetric, image-led view of the ministry in practice.
  */
 ?>
-<!-- wp:group {"metadata":{"name":"Ministry gallery"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","right":"var:preset|spacing|40","bottom":"var:preset|spacing|60","left":"var:preset|spacing|40"}}},"backgroundColor":"paper","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-paper-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)">
+<!-- wp:group {"metadata":{"name":"Ministry gallery"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","right":"var:preset|spacing|40","bottom":"var:preset|spacing|60","left":"var:preset|spacing|40"}}},"backgroundColor":"olive","textColor":"paper","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-paper-color has-olive-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)">
 	<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50"},"margin":{"bottom":"var:preset|spacing|60"}}}} -->
 	<div class="wp-block-columns alignwide" style="margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:column {"width":"32%"} --><div class="wp-block-column" style="flex-basis:32%"><!-- wp:paragraph {"className":"gg-eyebrow"} --><p class="gg-eyebrow">02 / In practice</p><!-- /wp:paragraph --></div><!-- /wp:column --><!-- wp:column {"width":"68%"} --><div class="wp-block-column" style="flex-basis:68%"><!-- wp:heading {"className":"gg-section-title","fontSize":"x-large"} --><h2 class="wp-block-heading gg-section-title has-x-large-font-size">Faith made visible.</h2><!-- /wp:heading --></div><!-- /wp:column --></div>
 	<!-- /wp:columns -->

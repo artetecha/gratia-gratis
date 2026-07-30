@@ -22,6 +22,11 @@ body,
 	margin-block-start: 0;
 }
 
+/* The front-page patterns are adjoining colour fields, not spaced content blocks. */
+.wp-site-blocks > main.wp-block-group > * {
+	margin-block-start: 0 !important;
+}
+
 a {
 	text-decoration-thickness: 1px;
 	text-underline-offset: 0.22em;
@@ -98,11 +103,33 @@ a:hover {
 
 .gg-home-hero {
 	min-height: min(860px, calc(100vh - 94px));
+	padding: clamp(4.5rem, 10vw, 9rem) clamp(1.25rem, 4vw, 4.5rem) 3rem !important;
 	border-bottom: 1px solid #d7d5cf;
+}
+
+.gg-home-hero-inner {
+	width: 100%;
+}
+
+.gg-home-copy,
+.gg-home-foot {
+	width: 100%;
+	max-width: none !important;
+	margin-inline: 0 !important;
+}
+
+.gg-home-copy > * {
+	margin-block-start: 0 !important;
+}
+
+.gg-home-copy > .gg-eyebrow {
+	margin-bottom: 1.25rem;
 }
 
 .gg-home-title {
 	max-width: 12ch;
+	margin-bottom: 2.8rem;
+	letter-spacing: -0.055em;
 	line-height: 0.88;
 }
 
@@ -112,14 +139,47 @@ a:hover {
 }
 
 .gg-home-note {
-	max-width: 30rem;
 	margin-bottom: 0;
 	padding-top: 1rem;
 	border-top: 1px solid var(--wp--preset--color--ink);
 }
 
+.wp-block-columns.gg-home-foot {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.37fr);
+	column-gap: clamp(2rem, 7vw, 8rem);
+	align-items: end;
+	padding-top: 5rem !important;
+}
+
+.gg-home-foot > .wp-block-column {
+	width: auto;
+	min-width: 0;
+}
+
+.gg-home-foot .wp-block-buttons {
+	justify-content: flex-end;
+}
+
+.gg-home-action .wp-block-button__link {
+	display: inline-flex;
+	min-height: 3.25rem;
+	align-items: center;
+	gap: 2.5rem;
+	padding: 0.85rem 1.15rem;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.gg-button-arrow {
+	font-size: 1.2rem;
+	font-weight: 400;
+}
+
 .gg-section-title {
 	max-width: 17ch;
+	letter-spacing: -0.045em;
+	line-height: 0.98;
 }
 
 .gg-rounded,
@@ -180,6 +240,10 @@ a:hover {
 	font-weight: 500;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
+}
+
+.has-olive-background-color .gg-ministry-grid figcaption {
+	color: rgba(249, 249, 249, 0.72);
 }
 
 .gg-book-preview-grid {
@@ -549,6 +613,15 @@ a:hover {
 @media (max-width: 900px) {
 	.gg-home-hero {
 		min-height: auto;
+	}
+
+	.wp-block-columns.gg-home-foot {
+		grid-template-columns: 1fr;
+		row-gap: 2.5rem;
+	}
+
+	.gg-home-foot .wp-block-buttons {
+		justify-content: flex-start;
 	}
 
 	.gg-tell-grid {

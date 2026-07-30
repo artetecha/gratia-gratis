@@ -6,7 +6,7 @@
     "useRootPaddingAwareAlignments": true,
     "layout": {
       "contentSize": "760px",
-      "wideSize": "1296px"
+      "wideSize": "1440px"
     },
     "background": {
       "backgroundImage": true,
@@ -65,7 +65,7 @@
       "customFontSize": false,
       "defaultFontSizes": false,
       "dropCap": false,
-      "fluid": true,
+      "fluid": false,
       "fontFamilies": [
         {
           "fontFamily": "Cardo, 'Iowan Old Style', Baskerville, Georgia, serif",
@@ -90,11 +90,11 @@
       ],
       "fontSizes": [
         { "slug": "xs", "name": "Extra small", "size": "0.72rem" },
-        { "slug": "small", "name": "Small", "size": "0.88rem" },
+        { "slug": "small", "name": "Small", "size": "1rem" },
         { "slug": "medium", "name": "Body", "size": "1.125rem" },
         { "slug": "large", "name": "Lead", "size": "clamp(1.35rem, 2.3vw, 2rem)" },
-        { "slug": "x-large", "name": "Heading", "size": "clamp(2.6rem, 6vw, 5.6rem)" },
-        { "slug": "display", "name": "Display", "size": "clamp(4rem, 9vw, 8.5rem)" }
+        { "slug": "x-large", "name": "Heading", "size": "clamp(2.6rem, 6vw, 5.8rem)" },
+        { "slug": "display", "name": "Display", "size": "clamp(4rem, 10vw, 9.5rem)" }
       ]
     },
     "blocks": {

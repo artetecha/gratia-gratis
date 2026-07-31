@@ -12,8 +12,18 @@ add_action( 'wp_enqueue_scripts', function() {
 			'gratia-mc4wp-styles', // Handle name
 			plugins_url( 'form-style.css', __FILE__ ), // URL to the CSS file
 			[],
-			'1.0.0'
+			'1.1.0'
 		);
 
+	}
+
+	// Jetpack previously supplied the layout for saved tiled-gallery blocks.
+	if ( file_exists( plugin_dir_path( __FILE__ ) . 'legacy-tiled-gallery.css' ) ) {
+		wp_enqueue_style(
+			'gratia-legacy-tiled-gallery',
+			plugins_url( 'legacy-tiled-gallery.css', __FILE__ ),
+			array(),
+			'1.0.0'
+		);
 	}
 });

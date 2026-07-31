@@ -40,11 +40,14 @@ jobs:
           test -f wordpress/wp-content/mu-plugins/upsun-loader.php
           test -f wordpress/wp-content/mu-plugins/site-config.php
           test -f wordpress/wp-content/mu-plugins/gg-styles.php
+          test -f wordpress/wp-content/mu-plugins/gg-styles/legacy-tiled-gallery.css
           test -f wordpress/wp-content/object-cache.php
           test -d wordpress/wp-content/themes/twentytwentyfour
           test ! -d wordpress/wp-content/themes/twentytwentythree
           test ! -d wordpress/wp-content/themes/twentytwentyfive
           test ! -f wordpress/wp-content/plugins/hello.php
+          test ! -d wordpress/wp-content/plugins/elasticpress
+          test ! -d wordpress/wp-content/plugins/jetpack
           test ! -d wordpress/wp-content/plugins/really-simple-ssl
           test ! -d wordpress/wp-content/plugins/wp-cloudflare-page-cache
           test ! -d wordpress/wp-content/plugins/wordpress-importer

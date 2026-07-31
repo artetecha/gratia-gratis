@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e89045f0cd04ff1df9617037aa94a82",
+    "content-hash": "a1ee589aefede5394dfc383b7ccb9cee",
     "packages": [
         {
             "name": "artetecha/upsun-wp",
@@ -442,42 +442,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/database-for-wpforms/"
-        },
-        {
-            "name": "wpackagist-plugin/elasticpress",
-            "version": "5.3.3",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/elasticpress/",
-                "reference": "tags/5.3.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/elasticpress.5.3.3.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/elasticpress/"
-        },
-        {
-            "name": "wpackagist-plugin/jetpack",
-            "version": "16.0.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/jetpack/",
-                "reference": "tags/16.0.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/jetpack.16.0.1.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/jetpack/"
         },
         {
             "name": "wpackagist-plugin/mailchimp-for-wp",

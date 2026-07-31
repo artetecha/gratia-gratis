@@ -845,6 +845,10 @@ a:hover {
 	background: var(--wp--preset--color--white);
 }
 
+.gg-books-catalog .gg-book-cover {
+	background: transparent;
+}
+
 .gg-book-cover a {
 	width: 100%;
 	height: 100%;

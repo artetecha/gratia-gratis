@@ -12,6 +12,7 @@ Editor.
 - Standard page and page without title
 - Contact page (`contact-us` slug)
 - Books page (`books` slug)
+- Single book
 - Archive, search, and 404
 
 ## Included patterns
@@ -33,9 +34,16 @@ page-hero patterns are available in the inserter too.
 5. The contact template styles the site's existing WPForms form.
 
 The `/blog` slug has its own query template, so it works whether or not that
-page is selected as the Posts page under Reading settings. The Books template
-uses the editable Complete books catalog pattern rather than the legacy page
-markup.
+page is selected as the Posts page under Reading settings.
+
+Books are managed under the dedicated **Books** admin menu. Each Book uses its
+title, Featured Image as the cover, editor content and excerpt, Book Status,
+menu order, and the Author, destination URL, and link-label fields in the Book
+details panel. The Books page and homepage preview are editable block patterns
+whose Query Loops read those records. The accompanying project MU plugin owns
+the content type so the book data remains available independently of the
+active theme. It also performs a one-time migration of the five legacy covers
+into Book posts.
 
 The single-post template uses the post's Featured Image above its title. When
 an older post has no Featured Image assigned, the empty image band collapses;

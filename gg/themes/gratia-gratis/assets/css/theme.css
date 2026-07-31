@@ -205,8 +205,19 @@ a:hover {
 }
 
 .gg-tell-item {
-	min-height: 17rem;
+	display: flex;
+	min-height: 14rem;
+	flex-direction: column;
+	justify-content: center;
 	border-right: 1px solid rgba(17, 17, 17, 0.18);
+}
+
+.gg-tell-item > * {
+	margin-block: 0;
+}
+
+.gg-tell-item > * + * {
+	margin-block-start: 1.25rem;
 }
 
 .gg-tell-item:last-child {
@@ -818,7 +829,7 @@ a:hover {
 
 @media (max-width: 600px) {
 	.gg-tell-item {
-		min-height: 12rem;
+		min-height: 11rem;
 	}
 
 	.gg-ministry-grid,

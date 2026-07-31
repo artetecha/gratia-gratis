@@ -116,11 +116,13 @@ pending. Successful migrations are recorded in the database and follow cloned
 data.
 
 The included migrations import the legacy book catalog into the Book content
-type and remove obsolete plugin activation and settings state, including
-Really Simple Security, the WordPress Cloudflare page-cache plugin, WordPress
-Importer, ElasticPress, and Jetpack. Other user-authored and previously
-imported content is preserved, including content created with Jetpack blocks.
-The site styles MU plugin retains the layout of saved tiled-gallery blocks.
+type, create the shared header and footer Navigation entities used by the
+block theme, and remove obsolete plugin activation and settings state,
+including Really Simple Security, the WordPress Cloudflare page-cache plugin,
+WordPress Importer, ElasticPress, and Jetpack. Other user-authored and
+previously imported content is preserved, including content created with
+Jetpack blocks. The site styles MU plugin retains the layout of saved
+tiled-gallery blocks.
 
 ## Cron, CI, and backups
 

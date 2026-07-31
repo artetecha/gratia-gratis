@@ -6,6 +6,13 @@
  * Block Types: core/template-part/footer
  * Inserter: no
  */
+
+$footer_about_navigation_id = function_exists( 'gratia_gratis_get_navigation_id' )
+	? gratia_gratis_get_navigation_id( 'footer-about-navigation' )
+	: 0;
+$footer_explore_navigation_id = function_exists( 'gratia_gratis_get_navigation_id' )
+	? gratia_gratis_get_navigation_id( 'footer-explore-navigation' )
+	: 0;
 ?>
 <!-- wp:group {"align":"full","className":"gg-footer","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|30","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull gg-footer has-white-background-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--40)">
@@ -19,12 +26,28 @@
 
 		<!-- wp:column {"width":"25%"} -->
 		<div class="wp-block-column" style="flex-basis:25%"><!-- wp:heading {"level":3,"className":"gg-eyebrow"} --><h3 class="wp-block-heading gg-eyebrow">About</h3><!-- /wp:heading -->
-		<!-- wp:list {"className":"is-style-none"} --><ul class="is-style-none"><li><a href="/about-us/">Our team</a></li><li><a href="/contact-us/">Contact us</a></li><li><a href="/contact-us/">Join us</a></li></ul><!-- /wp:list --></div>
+		<?php if ( $footer_about_navigation_id ) : ?>
+		<!-- wp:navigation {"ref":<?php echo absint( $footer_about_navigation_id ); ?>,"overlayMenu":"never","ariaLabel":"About","className":"gg-footer-navigation","layout":{"type":"flex","orientation":"vertical"}} /-->
+		<?php else : ?>
+		<!-- wp:navigation {"overlayMenu":"never","ariaLabel":"About","className":"gg-footer-navigation","layout":{"type":"flex","orientation":"vertical"}} -->
+			<!-- wp:navigation-link {"label":"Our team","url":"/about-us/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Contact us","url":"/contact-us/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Join us","url":"/contact-us/","kind":"custom","isTopLevelLink":true} /-->
+		<!-- /wp:navigation -->
+		<?php endif; ?></div>
 		<!-- /wp:column -->
 
 		<!-- wp:column {"width":"25%"} -->
 		<div class="wp-block-column" style="flex-basis:25%"><!-- wp:heading {"level":3,"className":"gg-eyebrow"} --><h3 class="wp-block-heading gg-eyebrow">Explore</h3><!-- /wp:heading -->
-		<!-- wp:list {"className":"is-style-none"} --><ul class="is-style-none"><li><a href="/blog/">Journal</a></li><li><a href="/books/">Books</a></li><li><a href="/#donate">Give</a></li></ul><!-- /wp:list --></div>
+		<?php if ( $footer_explore_navigation_id ) : ?>
+		<!-- wp:navigation {"ref":<?php echo absint( $footer_explore_navigation_id ); ?>,"overlayMenu":"never","ariaLabel":"Explore","className":"gg-footer-navigation","layout":{"type":"flex","orientation":"vertical"}} /-->
+		<?php else : ?>
+		<!-- wp:navigation {"overlayMenu":"never","ariaLabel":"Explore","className":"gg-footer-navigation","layout":{"type":"flex","orientation":"vertical"}} -->
+			<!-- wp:navigation-link {"label":"Journal","url":"/blog/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Books","url":"/books/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Give","url":"/#donate","kind":"custom","isTopLevelLink":true} /-->
+		<!-- /wp:navigation -->
+		<?php endif; ?></div>
 		<!-- /wp:column -->
 	</div>
 	<!-- /wp:columns -->
@@ -34,4 +57,3 @@
 	<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
-

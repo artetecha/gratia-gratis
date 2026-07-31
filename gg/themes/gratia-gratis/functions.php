@@ -75,6 +75,26 @@ function gratia_gratis_register_pattern_categories() {
 add_action( 'init', 'gratia_gratis_register_pattern_categories' );
 
 /**
+ * Resolve a shared Navigation entity by its stable slug.
+ *
+ * Pattern files use this helper instead of hardcoding database-specific post
+ * IDs. The migration creates the entities, while the patterns retain embedded
+ * fallback links for fresh databases where migrations have not run yet.
+ *
+ * @param string $slug Navigation post slug.
+ * @return int Published Navigation post ID, or zero when it is unavailable.
+ */
+function gratia_gratis_get_navigation_id( $slug ) {
+	$navigation = get_page_by_path( sanitize_title( $slug ), OBJECT, 'wp_navigation' );
+
+	if ( ! $navigation instanceof WP_Post || 'publish' !== $navigation->post_status ) {
+		return 0;
+	}
+
+	return (int) $navigation->ID;
+}
+
+/**
  * Expose a few reusable block treatments in the editor.
  */
 function gratia_gratis_register_block_styles() {

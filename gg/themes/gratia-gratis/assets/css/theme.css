@@ -515,16 +515,39 @@ a:hover {
 	top: 2rem;
 }
 
-.gg-post-content > p:first-child {
-	font-size: var(--wp--preset--font-size--large);
-	line-height: 1.36;
+.gg-reading-content {
+	--wp--style--global--content-size: 980px;
+	font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif;
+	font-size: clamp(0.957rem, 0.7926rem + 0.822vw, 1.45rem);
+	line-height: 1.55;
 }
 
-.gg-post-content h2 {
+.gg-reading-content :where(p, li) {
+	text-align: justify;
+	hyphens: auto;
+}
+
+.gg-reading-content :where(h2, h3, h4, h5, h6) {
+	font-family: Cardo, "Iowan Old Style", Baskerville, Georgia, serif;
+	font-weight: 600;
+	letter-spacing: normal;
+	line-height: 1.2;
+}
+
+.gg-reading-content h2 {
 	margin-top: clamp(3rem, 7vw, 5rem);
+	font-size: clamp(1.502rem, 1.1694rem + 1.663vw, 2.5rem);
 }
 
-.gg-post-content blockquote {
+.gg-reading-content h3 {
+	font-size: clamp(1.39rem, 1.2366rem + 0.767vw, 1.85rem);
+}
+
+.gg-reading-content h4 {
+	font-size: clamp(1.1rem, 0.9466rem + 0.767vw, 1.5rem);
+}
+
+.gg-reading-content blockquote {
 	margin-block: 3rem;
 	padding-left: 2rem;
 	border-left: 2px solid var(--wp--preset--color--gold);

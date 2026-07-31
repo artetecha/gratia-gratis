@@ -22,6 +22,28 @@ function gratia_gratis_setup() {
 add_action( 'after_setup_theme', 'gratia_gratis_setup' );
 
 /**
+ * Pages are editorial documents and never expose discussion controls.
+ */
+function gratia_gratis_disable_page_discussion_support() {
+	remove_post_type_support( 'page', 'comments' );
+	remove_post_type_support( 'page', 'trackbacks' );
+}
+add_action( 'init', 'gratia_gratis_disable_page_discussion_support', 20 );
+
+/**
+ * Keep comments and pingbacks closed for pages, including existing content.
+ *
+ * @param bool $open    Whether the discussion type is open.
+ * @param int  $post_id Post ID.
+ * @return bool
+ */
+function gratia_gratis_close_page_discussion( $open, $post_id ) {
+	return 'page' === get_post_type( $post_id ) ? false : $open;
+}
+add_filter( 'comments_open', 'gratia_gratis_close_page_discussion', 10, 2 );
+add_filter( 'pings_open', 'gratia_gratis_close_page_discussion', 10, 2 );
+
+/**
  * Load the small CSS layer that complements theme.json.
  */
 function gratia_gratis_enqueue_styles() {

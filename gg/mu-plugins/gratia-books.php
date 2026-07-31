@@ -185,6 +185,25 @@ function gratia_books_save_details( int $post_id ): void {
 add_action( 'save_post_book', 'gratia_books_save_details' );
 
 /**
+ * Use the editable purchase or preview destination for Book card permalinks.
+ * Books without an external destination retain their local detail page.
+ *
+ * @param string  $permalink Generated Book permalink.
+ * @param WP_Post $post      Current Book post.
+ * @return string
+ */
+function gratia_books_destination_permalink( string $permalink, WP_Post $post ): string {
+	if ( 'book' !== $post->post_type ) {
+		return $permalink;
+	}
+
+	$destination = esc_url_raw( (string) get_post_meta( $post->ID, 'book_url', true ) );
+
+	return $destination ?: $permalink;
+}
+add_filter( 'post_type_link', 'gratia_books_destination_permalink', 10, 2 );
+
+/**
  * Locate an existing media-library cover by its stable filename stem.
  *
  * @param string $filename_stem Partial original filename.
@@ -305,9 +324,9 @@ add_action( 'init', 'gratia_books_migrate_legacy_catalog', 30 );
  * Refresh rewrite rules once when the content type is introduced.
  */
 function gratia_books_maybe_flush_rewrite_rules(): void {
-	if ( '1' !== get_option( 'gratia_books_rewrite_version' ) ) {
+	if ( '2' !== get_option( 'gratia_books_rewrite_version' ) ) {
 		flush_rewrite_rules( false );
-		update_option( 'gratia_books_rewrite_version', '1', false );
+		update_option( 'gratia_books_rewrite_version', '2', false );
 	}
 }
 add_action( 'init', 'gratia_books_maybe_flush_rewrite_rules', 99 );

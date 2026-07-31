@@ -347,13 +347,6 @@ a:hover {
 	content: ":\00a0";
 }
 
-.gg-search-term {
-	max-width: 36ch;
-	margin-top: 2rem;
-	margin-bottom: 0;
-	line-height: 1.3;
-}
-
 .gg-search-form {
 	margin-top: var(--wp--preset--spacing--40);
 }

@@ -77,6 +77,41 @@ function gratia_gratis_register_block_styles() {
 add_action( 'init', 'gratia_gratis_register_block_styles' );
 
 /**
+ * Replace an expanded legacy Books preview saved in a Site Editor template
+ * with the current dynamic pattern. This leaves every other customized block
+ * on the front page untouched.
+ *
+ * @param string $block_content Rendered Group block markup.
+ * @param array  $block         Parsed block data.
+ * @return string
+ */
+function gratia_gratis_render_dynamic_books_preview( $block_content, $block ) {
+	if ( str_contains( $block_content, 'gg-books-preview-query' ) ) {
+		return $block_content;
+	}
+
+	$metadata_name = $block['attrs']['metadata']['name'] ?? '';
+	$is_named_copy = 'Books preview' === $metadata_name;
+	$is_legacy_copy =
+		'full' === ( $block['attrs']['align'] ?? '' )
+		&& 'parchment' === ( $block['attrs']['backgroundColor'] ?? '' )
+		&& str_contains( $block_content, 'gg-book-preview-grid' )
+		&& str_contains( $block_content, 'View the full book list' );
+
+	if ( ! $is_named_copy && ! $is_legacy_copy ) {
+		return $block_content;
+	}
+
+	$pattern = WP_Block_Patterns_Registry::get_instance()->get_registered( 'gratia-gratis/books-preview' );
+	if ( empty( $pattern['content'] ) ) {
+		return $block_content;
+	}
+
+	return do_blocks( $pattern['content'] );
+}
+add_filter( 'render_block_core/group', 'gratia_gratis_render_dynamic_books_preview', 10, 2 );
+
+/**
  * Render the configured Mailchimp form, with an honest visual fallback when
  * the plugin is installed but inactive (as can happen on a fresh preview).
  *

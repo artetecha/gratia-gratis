@@ -251,7 +251,7 @@ a:hover {
 
 .gg-ministry-grid figcaption {
 	font-family: var(--wp--preset--font-family--sans);
-	font-size: 0.68rem;
+	font-size: 0.72rem;
 	font-weight: 500;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
@@ -314,7 +314,7 @@ a:hover {
 	padding: 0.55rem 0.8rem;
 	border: 1px solid #d7d5cf;
 	font-family: var(--wp--preset--font-family--sans);
-	font-size: 0.65rem;
+	font-size: 0.72rem;
 	font-weight: 600;
 	letter-spacing: 0.07em;
 	line-height: 1;
@@ -413,7 +413,7 @@ a:hover {
 	gap: 0.5rem;
 	margin-top: 4rem;
 	font-family: var(--wp--preset--font-family--sans);
-	font-size: 0.7rem;
+	font-size: 0.75rem;
 	font-weight: 600;
 	line-height: 1;
 }
@@ -592,7 +592,7 @@ a:hover {
 .wpforms-container .wpforms-field-sublabel,
 .mc4wp-form label {
 	font-family: var(--wp--preset--font-family--sans);
-	font-size: 0.7rem;
+	font-size: 0.75rem;
 	font-weight: 600;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
@@ -609,7 +609,7 @@ a:hover {
 	color: inherit;
 	cursor: pointer;
 	font-family: var(--wp--preset--font-family--sans);
-	font-size: 0.75rem;
+	font-size: 0.8rem;
 	font-weight: 600;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
@@ -690,7 +690,7 @@ a:hover {
 
 .gg-newsletter .mc4wp-form label {
 	color: #b7b7b7;
-	font-size: 0.68rem;
+	font-size: 0.75rem;
 	font-weight: 500;
 }
 
@@ -931,7 +931,7 @@ a:hover {
 	border: 0;
 	background: transparent;
 	color: currentColor;
-	font-size: 0.68rem;
+	font-size: 0.75rem;
 }
 
 .gg-book-action .wp-block-button__link:hover {

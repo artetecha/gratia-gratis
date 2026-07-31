@@ -89,7 +89,7 @@
         }
       ],
       "fontSizes": [
-        { "slug": "xs", "name": "Extra small", "size": "0.72rem" },
+        { "slug": "xs", "name": "Extra small", "size": "0.78rem" },
         { "slug": "small", "name": "Small", "size": "1rem" },
         { "slug": "medium", "name": "Body", "size": "1.125rem" },
         { "slug": "large", "name": "Lead", "size": "clamp(1.35rem, 2.3vw, 2rem)" },
@@ -131,7 +131,7 @@
         "border": { "color": "currentColor", "radius": "0", "style": "solid", "width": "1px" },
         "color": { "background": "transparent", "text": "currentColor" },
         "spacing": { "padding": { "top": "0.9rem", "right": "1.2rem", "bottom": "0.9rem", "left": "1.2rem" } },
-        "typography": { "fontFamily": "var:preset|font-family|sans", "fontSize": "0.75rem", "fontWeight": "600", "letterSpacing": "0.08em", "textTransform": "uppercase" }
+        "typography": { "fontFamily": "var:preset|font-family|sans", "fontSize": "0.8rem", "fontWeight": "600", "letterSpacing": "0.08em", "textTransform": "uppercase" }
       },
       "caption": {
         "color": { "text": "var:preset|color|quiet" },

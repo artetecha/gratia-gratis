@@ -963,6 +963,26 @@ a:hover {
 	text-decoration-thickness: 1px;
 }
 
+.gg-footer .gg-footer-navigation {
+	margin-block-start: 1.5rem;
+	font-family: var(--wp--preset--font-family--serif);
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: 400;
+	letter-spacing: normal;
+	line-height: 1.55;
+	text-transform: none;
+	align-items: flex-start;
+}
+
+.gg-footer .gg-footer-navigation .wp-block-navigation__container {
+	gap: 0;
+	align-items: flex-start;
+}
+
+.gg-footer .gg-footer-navigation .wp-block-navigation-item__content {
+	padding: 0;
+}
+
 @media (max-width: 900px) {
 	.gg-home-hero {
 		min-height: auto;

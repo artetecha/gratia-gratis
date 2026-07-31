@@ -33,6 +33,12 @@ page-hero patterns are available in the inserter too.
    active on a temporary environment.
 5. The contact template styles the site's existing WPForms form.
 
+The project migration creates three shared Navigation entities: **Primary
+navigation**, **Footer: About**, and **Footer: Explore**. Edit them in the Site
+Editor's Navigation area; changes are reflected everywhere the corresponding
+header or footer menu is used. The theme patterns resolve these entities by
+stable slug, so their database IDs can differ safely between environments.
+
 The `/blog` slug has its own query template, so it works whether or not that
 page is selected as the Posts page under Reading settings.
 

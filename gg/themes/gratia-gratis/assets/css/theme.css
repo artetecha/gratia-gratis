@@ -609,6 +609,11 @@ a:hover {
 	text-transform: uppercase;
 }
 
+.gg-post-comments .wp-block-comment-author-name {
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
 .gg-post-comments input:not([type="submit"]):not([type="checkbox"]),
 .gg-post-comments textarea,
 .wpforms-container input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]),

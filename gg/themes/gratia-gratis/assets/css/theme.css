@@ -199,12 +199,14 @@ a:hover {
 	object-fit: cover;
 }
 
-.gg-tell-grid {
+.wp-block-columns.gg-tell-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
 	border-top: 1px solid currentColor;
 	border-bottom: 1px solid currentColor;
 }
 
-.gg-tell-item {
+.wp-block-columns.gg-tell-grid > .wp-block-column.gg-tell-item {
 	display: flex;
 	min-height: 14rem;
 	flex-direction: column;
@@ -552,6 +554,59 @@ a:hover {
 	padding-left: 2rem;
 	border-left: 2px solid var(--wp--preset--color--gold);
 	font-size: var(--wp--preset--font-size--large);
+}
+
+.gg-post-comments .comment-reply-title {
+	margin: 0 0 var(--wp--preset--spacing--40);
+	padding-top: var(--wp--preset--spacing--30);
+	border-top: 3px solid var(--wp--preset--color--gold);
+	font-family: var(--wp--preset--font-family--serif);
+	font-size: clamp(2.5rem, 7vw, 5rem);
+	font-weight: 400;
+	letter-spacing: -0.045em;
+	line-height: 0.95;
+}
+
+.gg-post-comments .comment-reply-title small {
+	display: inline-block;
+	margin-left: 0.75rem;
+	font-family: var(--wp--preset--font-family--sans);
+	font-size: var(--wp--preset--font-size--xs);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.gg-post-comments .wp-block-comment-content {
+	font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif;
+	font-size: clamp(0.957rem, 0.88rem + 0.38vw, 1.2rem);
+	line-height: 1.55;
+}
+
+.gg-post-comments .wp-block-comment-content :where(p, li) {
+	text-align: justify;
+	hyphens: auto;
+}
+
+.gg-post-comments :where(
+	.wp-block-comment-author-name,
+	.wp-block-comment-date,
+	.wp-block-comment-edit-link,
+	.wp-block-comment-reply-link
+) {
+	font-family: var(--wp--preset--font-family--sans);
+	font-size: var(--wp--preset--font-size--xs);
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.gg-post-comments :where(
+	.wp-block-comment-date,
+	.wp-block-comment-edit-link,
+	.wp-block-comment-reply-link
+) {
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
 }
 
 .gg-post-comments input:not([type="submit"]):not([type="checkbox"]),
@@ -1001,7 +1056,7 @@ a:hover {
 		grid-template-columns: 1fr;
 	}
 
-	.gg-tell-grid {
+	.wp-block-columns.gg-tell-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 	}
 
@@ -1055,8 +1110,112 @@ a:hover {
 }
 
 @media (max-width: 600px) {
-	.gg-tell-item {
-		min-height: 11rem;
+	.gg-header {
+		padding: 1rem 1.25rem !important;
+	}
+
+	.gg-header > .wp-block-group {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		grid-template-areas:
+			"brand menu"
+			"actions actions";
+		gap: 0.75rem 1rem;
+	}
+
+	.gg-header > .wp-block-group > .wp-block-group:first-child {
+		grid-area: brand;
+		min-width: 0;
+		flex-wrap: nowrap;
+	}
+
+	.gg-header .wp-block-site-title {
+		font-size: 1.2rem;
+		line-height: 1;
+		white-space: nowrap;
+	}
+
+	.gg-header > .wp-block-group > .wp-block-navigation {
+		grid-area: menu;
+		justify-self: end;
+	}
+
+	.gg-header .wp-block-navigation__responsive-container-open {
+		width: 2.75rem;
+		height: 2.75rem;
+		display: grid;
+		place-items: center;
+		padding: 0;
+	}
+
+	.gg-header .gg-header-actions {
+		grid-area: actions;
+		width: 100%;
+	}
+
+	.gg-header .gg-header-actions .wp-block-buttons {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.75rem;
+	}
+
+	.gg-header .gg-header-actions .wp-block-button,
+	.gg-header .gg-header-actions .wp-block-button__link {
+		width: 100%;
+	}
+
+	.gg-header .gg-header-actions .wp-block-button__link {
+		min-height: 2.75rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.65rem 0.75rem;
+	}
+
+	.wp-block-columns.gg-tell-grid {
+		grid-template-columns: minmax(0, 1fr) !important;
+	}
+
+	.wp-block-columns.gg-tell-grid > .wp-block-column.gg-tell-item {
+		min-height: 0;
+		display: grid;
+		grid-template-columns: clamp(4.5rem, 22vw, 6.5rem) minmax(0, 1fr);
+		gap: 1.25rem;
+		align-items: center;
+		justify-content: initial;
+		border-right: 0;
+	}
+
+	.gg-tell-item:not(:last-child) {
+		border-bottom: 1px solid rgba(17, 17, 17, 0.18);
+	}
+
+	.gg-tell-item:last-child {
+		border-bottom: 0;
+	}
+
+	.gg-tell-item > * + * {
+		margin-block-start: 0;
+	}
+
+	.gg-tell-letter {
+		font-size: clamp(4.5rem, 22vw, 6.5rem);
+	}
+
+	.gg-book-cover {
+		aspect-ratio: auto;
+		overflow: visible;
+	}
+
+	.gg-book-cover a {
+		height: auto;
+	}
+
+	.gg-book-cover img {
+		width: 100%;
+		height: auto;
+		max-height: none;
 	}
 
 	.gg-ministry-grid,

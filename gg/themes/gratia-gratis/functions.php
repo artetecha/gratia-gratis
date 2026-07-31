@@ -112,6 +112,26 @@ function gratia_gratis_render_dynamic_books_preview( $block_content, $block ) {
 add_filter( 'render_block_core/group', 'gratia_gratis_render_dynamic_books_preview', 10, 2 );
 
 /**
+ * Render the split search heading used by the Search template.
+ *
+ * @return string
+ */
+function gratia_gratis_search_heading() {
+	$search_query = trim( get_search_query() );
+
+	if ( '' === $search_query ) {
+		return '<h1 class="wp-block-heading has-display-font-size">' . esc_html__( 'Search', 'gratia-gratis' ) . '</h1>';
+	}
+
+	return sprintf(
+		'<h1 class="wp-block-heading has-display-font-size">%1$s</h1><p class="gg-search-term has-large-font-size">%2$s</p>',
+		esc_html__( 'Search results for:', 'gratia-gratis' ),
+		esc_html( $search_query )
+	);
+}
+add_shortcode( 'gratia_search_heading', 'gratia_gratis_search_heading' );
+
+/**
  * Render the configured Mailchimp form, with an honest visual fallback when
  * the plugin is installed but inactive (as can happen on a fresh preview).
  *

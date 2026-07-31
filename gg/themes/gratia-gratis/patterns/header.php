@@ -29,6 +29,8 @@
 		<div class="wp-block-group gg-header-actions"><!-- wp:paragraph {"className":"gg-meta"} --><p class="gg-meta"><a href="/?s=">Search</a></p><!-- /wp:paragraph --><!-- wp:buttons -->
 		<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-outline gg-header-subscribe"} -->
 		<div class="wp-block-button is-style-outline gg-header-subscribe"><a class="wp-block-button__link wp-element-button" href="#subscribe">Subscribe</a></div>
+		<!-- /wp:button --><!-- wp:button {"className":"is-style-outline gg-header-donate"} -->
+		<div class="wp-block-button is-style-outline gg-header-donate"><a class="wp-block-button__link wp-element-button" href="/#donate">Donate</a></div>
 		<!-- /wp:button --></div>
 		<!-- /wp:buttons --></div>
 		<!-- /wp:group -->

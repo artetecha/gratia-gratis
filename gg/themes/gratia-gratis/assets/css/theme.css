@@ -849,11 +849,13 @@ a:hover {
 	background: var(--wp--preset--color--white);
 }
 
-.gg-books-catalog .gg-book-cover {
+.gg-books-catalog .gg-book-cover,
+.gg-books-preview-query .gg-book-cover {
 	background: transparent;
 }
 
-.gg-books-catalog .gg-book-cover img {
+.gg-books-catalog .gg-book-cover img,
+.gg-books-preview-query .gg-book-cover img {
 	border-radius: 24px;
 }
 

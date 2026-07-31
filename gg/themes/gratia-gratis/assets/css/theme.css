@@ -762,12 +762,17 @@ a:hover {
 	display: flex;
 	align-items: center;
 	gap: 0.55rem;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
 	color: var(--wp--preset--color--paper);
 	font-size: inherit;
 	font-weight: 400;
 	letter-spacing: normal;
 	margin-bottom: 0;
 	text-transform: none;
+	cursor: pointer;
 }
 
 .gg-newsletter .mc4wp-form-fields > div > p:nth-child(4) > label:first-child {

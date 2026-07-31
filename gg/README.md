@@ -117,8 +117,9 @@ exception or return `false` to abort deployment and leave the migration
 pending. Successful migrations are recorded in the database and follow cloned
 data.
 
-The included migrations remove only Really Simple Security, the WordPress
-Cloudflare page-cache plugin, and WordPress Importer state. User-authored and
+The included migrations import the legacy book catalog into the Book content
+type, remove Really Simple Security and WordPress Cloudflare page-cache state,
+and remove WordPress Importer activation state. Other user-authored and
 previously imported content is preserved. Jetpack and ElasticPress cleanup is
 deliberately excluded after the production usage audit.
 

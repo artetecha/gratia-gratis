@@ -796,37 +796,6 @@ a:hover {
 	cursor: not-allowed;
 }
 
-/* The same MC4WP form powers both treatments. On interior pages its optional
- * profile/topic fields stay submitted but are visually reduced to email. */
-.gg-newsletter--compact .mc4wp-form-fields {
-	grid-template-columns: minmax(0, 1fr) auto;
-	align-items: end;
-}
-
-.gg-newsletter--compact .mc4wp-form-fields > div {
-	grid-template-columns: minmax(0, 1fr) auto;
-	align-items: end;
-}
-
-.gg-newsletter--compact .mc4wp-form-fields > div > p:nth-child(1),
-.gg-newsletter--compact .mc4wp-form-fields > div > p:nth-child(2),
-.gg-newsletter--compact .mc4wp-form-fields > div > p:nth-child(4),
-.gg-newsletter--compact .mc4wp-form-fields > p:nth-child(1),
-.gg-newsletter--compact .mc4wp-form-fields > p:nth-child(2),
-.gg-newsletter--compact .mc4wp-form-fields > p:nth-child(4),
-.gg-newsletter--compact .mc4wp-form-fields > .gg-newsletter-options {
-	display: none;
-}
-
-.gg-newsletter--compact .mc4wp-form-fields > div > p:nth-child(3),
-.gg-newsletter--compact .mc4wp-form-fields > div > p:nth-child(5),
-.gg-newsletter--compact .mc4wp-form-fields > p:nth-child(3),
-.gg-newsletter--compact .mc4wp-form-fields > p:nth-child(5),
-.gg-newsletter--compact .mc4wp-form-fields > p:has(input[type="email"]),
-.gg-newsletter--compact .mc4wp-form-fields > p:has(input[type="submit"]) {
-	grid-column: auto;
-}
-
 .gg-books-content {
 	max-width: var(--wp--style--global--wide-size);
 }

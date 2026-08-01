@@ -37,8 +37,8 @@ jobs:
 
       - name: Create Upsun backup
         env:
-          UPSUN_CLI_TOKEN: ${{ secrets.UPSUN_CLI_TOKEN }}
-          UPSUN_PROJECT: ${{ secrets.UPSUN_PROJECT }}
+          UPSUN_CLI_TOKEN: ${{ secrets.PLATFORMSH_CLI_TOKEN }}
+          UPSUN_PROJECT: ${{ secrets.PLATFORMSH_PROJECT }}
         # The target project currently calls its primary production environment
         # "master". Selecting "." follows the project default now and after any
         # future rename to "main" without another workflow change.

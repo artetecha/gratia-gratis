@@ -128,6 +128,4 @@ tiled-gallery blocks.
 
 Upsun runs due WordPress events every five minutes. CI validates Composer,
 installs the lock file, verifies generated placement, and PHP-lints project
-configuration. The daily/manual backup workflow follows the project's default
-production environment (currently `master`, and automatically `main` after a
-rename) and requires `UPSUN_PROJECT` and `UPSUN_CLI_TOKEN` repository secrets.
+configuration. Production backups use Upsun's built-in scheduled backups.

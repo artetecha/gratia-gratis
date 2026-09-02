@@ -1,0 +1,250 @@
+/**
+ * Print presentation for single posts and pages.
+ *
+ * This stylesheet is loaded with media="print" only on singular editorial
+ * content, keeping the screen and Site Editor presentation untouched.
+ */
+
+@page {
+	size: auto;
+	margin: 18mm 17mm 20mm;
+}
+
+body.single-post,
+body.page {
+	background: #fff !important;
+	color: #000 !important;
+	font-size: 11pt;
+	line-height: 1.55;
+}
+
+body.single-post *,
+body.page * {
+	background: transparent !important;
+	color: #000 !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+}
+
+body.single-post .wp-site-blocks,
+body.page .wp-site-blocks,
+body.single-post main,
+body.page main {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+body.single-post .wp-site-blocks > header,
+body.single-post .wp-site-blocks > footer,
+body.single-post .wp-site-blocks > section,
+body.page .wp-site-blocks > header,
+body.page .wp-site-blocks > footer,
+body.page .wp-site-blocks > section,
+body.single-post .gg-post-feature,
+body.single-post .gg-post-comments,
+body.single-post .gg-post-rail,
+body.single-post main > .has-parchment-background-color,
+body.page .gg-page-feature,
+body.single-post img,
+body.page img,
+body.single-post picture,
+body.page picture,
+body.single-post video,
+body.page video,
+body.single-post audio,
+body.page audio,
+body.single-post iframe,
+body.page iframe,
+body.single-post svg,
+body.page svg,
+body.single-post canvas,
+body.page canvas,
+body.single-post .wp-block-image,
+body.page .wp-block-image,
+body.single-post .wp-block-gallery,
+body.page .wp-block-gallery,
+body.single-post .wp-block-embed,
+body.page .wp-block-embed,
+body.single-post .wp-block-media-text__media,
+body.page .wp-block-media-text__media,
+body.single-post .wp-block-buttons,
+body.page .wp-block-buttons,
+body.single-post form,
+body.page form {
+	display: none !important;
+}
+
+body.single-post .gg-post-hero,
+body.page .gg-page-hero,
+body.single-post main > .has-white-background-color,
+body.page main > .has-white-background-color {
+	max-width: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	background: #fff !important;
+	color: #000 !important;
+}
+
+body.single-post .gg-post-hero,
+body.page .gg-page-hero {
+	padding-bottom: 7mm !important;
+	border-bottom: 0.5pt solid #777;
+}
+
+body.single-post .gg-post-hero .wp-block-columns,
+body.page .gg-page-hero .wp-block-columns {
+	display: flex !important;
+	flex-direction: column;
+	gap: 3mm !important;
+}
+
+body.single-post .gg-post-hero .wp-block-column,
+body.page .gg-page-hero .wp-block-column {
+	width: 100% !important;
+	flex-basis: auto !important;
+}
+
+body.single-post .gg-post-hero .wp-block-column:first-child {
+	order: 2;
+}
+
+body.single-post .gg-post-hero .wp-block-column:last-child {
+	order: 1;
+}
+
+body.single-post .gg-post-hero h1,
+body.page .gg-page-hero h1 {
+	max-width: none;
+	margin: 0;
+	font-size: 28pt !important;
+	font-weight: 400;
+	letter-spacing: -0.025em;
+	line-height: 1.08;
+}
+
+body.single-post .gg-post-hero :where(.wp-block-post-date, .wp-block-post-author-name, .wp-block-post-terms),
+body.page .gg-page-hero .gg-eyebrow {
+	font-family: Arial, Helvetica, sans-serif !important;
+	font-size: 8.5pt !important;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+body.single-post .gg-post-hero .wp-block-post-terms,
+body.single-post .gg-post-hero .wp-block-group {
+	margin: 0 !important;
+	gap: 0.4em !important;
+}
+
+body.single-post .gg-post-layout {
+	display: block !important;
+}
+
+body.single-post .gg-post-layout > .wp-block-column:last-child,
+body.single-post .gg-reading-content,
+body.page .gg-reading-content {
+	width: 100% !important;
+	max-width: none !important;
+	margin: 0 !important;
+	padding: 8mm 0 0 !important;
+	font-size: 11pt !important;
+	line-height: 1.55;
+}
+
+body.single-post .gg-reading-content > :first-child,
+body.page .gg-reading-content > :first-child {
+	margin-top: 0 !important;
+}
+
+body.single-post .gg-reading-content :where(p, li),
+body.page .gg-reading-content :where(p, li) {
+	orphans: 3;
+	widows: 3;
+	text-align: justify;
+	hyphens: auto;
+}
+
+body.single-post .gg-reading-content :where(h2, h3, h4, h5, h6),
+body.page .gg-reading-content :where(h2, h3, h4, h5, h6) {
+	margin-top: 1.5em;
+	margin-bottom: 0.45em;
+	break-after: avoid-page;
+	page-break-after: avoid;
+	color: #000 !important;
+	line-height: 1.2;
+}
+
+body.single-post .gg-reading-content h2,
+body.page .gg-reading-content h2 {
+	font-size: 19pt !important;
+}
+
+body.single-post .gg-reading-content h3,
+body.page .gg-reading-content h3 {
+	font-size: 15pt !important;
+}
+
+body.single-post .gg-reading-content :where(h4, h5, h6),
+body.page .gg-reading-content :where(h4, h5, h6) {
+	font-size: 12pt !important;
+}
+
+body.single-post .gg-reading-content :where(blockquote, pre, table),
+body.page .gg-reading-content :where(blockquote, pre, table) {
+	break-inside: avoid-page;
+	page-break-inside: avoid;
+}
+
+body.single-post .gg-reading-content blockquote,
+body.page .gg-reading-content blockquote {
+	margin: 1.25em 0;
+	padding-left: 1em;
+	border-left: 1.5pt solid #555;
+	font-size: 11pt;
+}
+
+body.single-post .gg-reading-content pre,
+body.page .gg-reading-content pre {
+	border: 0.5pt solid #aaa;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+body.single-post .gg-reading-content table,
+body.page .gg-reading-content table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+body.single-post .gg-reading-content :where(th, td),
+body.page .gg-reading-content :where(th, td) {
+	padding: 0.35em 0.5em;
+	border: 0.5pt solid #777;
+}
+
+body.single-post .gg-reading-content .wp-block-columns,
+body.page .gg-reading-content .wp-block-columns,
+body.single-post .gg-reading-content .wp-block-media-text,
+body.page .gg-reading-content .wp-block-media-text {
+	display: block !important;
+}
+
+body.single-post .gg-reading-content a,
+body.page .gg-reading-content a {
+	color: #000 !important;
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+}
+
+body.single-post .gg-reading-content a[href^="http"]::after,
+body.page .gg-reading-content a[href^="http"]::after {
+	content: " (" attr(href) ")";
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: 400;
+	letter-spacing: normal;
+	overflow-wrap: anywhere;
+	text-transform: none;
+}

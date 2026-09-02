@@ -57,6 +57,20 @@ function gratia_gratis_enqueue_styles() {
 		array(),
 		$version
 	);
+
+	if ( is_singular( array( 'post', 'page' ) ) ) {
+		$print_stylesheet_path = get_theme_file_path( 'assets/css/print.css' );
+		$print_stylesheet_hash = file_exists( $print_stylesheet_path ) ? md5_file( $print_stylesheet_path ) : false;
+		$print_version         = $print_stylesheet_hash ? substr( $print_stylesheet_hash, 0, 12 ) : wp_get_theme()->get( 'Version' );
+
+		wp_enqueue_style(
+			'gratia-gratis-print',
+			get_theme_file_uri( 'assets/css/print.css' ),
+			array( 'gratia-gratis' ),
+			$print_version,
+			'print'
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'gratia_gratis_enqueue_styles' );
 

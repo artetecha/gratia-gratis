@@ -36,7 +36,7 @@
     "wpackagist-plugin/database-for-wpforms": "^1.0",
     "wpackagist-plugin/mailchimp-for-wp": "^4.10",
     "wpackagist-plugin/polylang": "^3.6",
-    "wpackagist-plugin/redis-cache": "^2.8",
+    "wpackagist-plugin/redis-cache": "^3.0",
     "wpackagist-plugin/redirection": "^5.5",
     "wpackagist-plugin/series": "^2.0.1",
     "wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags": "^3.3",

@@ -42,7 +42,8 @@ jobs:
           test -f wordpress/wp-content/mu-plugins/gg-styles.php
           test -f wordpress/wp-content/mu-plugins/gg-styles/legacy-tiled-gallery.css
           test -f wordpress/wp-content/object-cache.php
-          test -d wordpress/wp-content/themes/twentytwentyfour
+          test -f wordpress/wp-content/themes/gratia-gratis/style.css
+          test -f wordpress/wp-content/themes/twentytwentyfour/style.css
           test ! -d wordpress/wp-content/themes/twentytwentythree
           test ! -d wordpress/wp-content/themes/twentytwentyfive
           test ! -f wordpress/wp-content/plugins/hello.php

@@ -8,8 +8,8 @@ generated files there.
 
 WordPress core comes from `roots/wordpress`, which installs the official
 WordPress archive without bundled themes or plugins through
-`roots/wordpress-core-installer`. Core remains constrained to 7.1 for this
-package migration; upgrading WordPress is a separate change.
+`roots/wordpress-core-installer`. The lockfile installs WordPress 7.1.2; the
+Composer constraint permits subsequent patches in the 7.1 series.
 
 The production site uses the source-controlled Gratia Gratis block theme from
 `themes/gratia-gratis`. Twenty Twenty-Four 1.6 remains available as a fallback

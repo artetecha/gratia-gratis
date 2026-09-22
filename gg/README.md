@@ -6,11 +6,16 @@ Italian translations, the `upsun-wp` MU plugin, and the Redis object-cache
 drop-in are assembled into the ignored `wordpress/` directory. Do not edit
 generated files there.
 
-The production site currently uses Twenty Twenty-Four. The build preserves
-that active theme while removing the other bundled Twenty themes, and copies
-the source-controlled Gratia Gratis block theme from `themes/gratia-gratis`
-into the generated WordPress tree. Existing environments are not switched
-automatically; fresh installs use Gratia Gratis as their default theme.
+WordPress core comes from `roots/wordpress`, which installs the official
+WordPress archive without bundled themes or plugins through
+`roots/wordpress-core-installer`. Core remains constrained to 7.1 for this
+package migration; upgrading WordPress is a separate change.
+
+The production site uses the source-controlled Gratia Gratis block theme from
+`themes/gratia-gratis`. Twenty Twenty-Four 1.6 remains available as a fallback
+through an explicit `wpackagist-theme/twentytwentyfour` dependency. Existing
+environments are not switched automatically; fresh installs use Gratia Gratis
+as their default theme.
 
 ## Local installation
 
@@ -37,16 +42,25 @@ wp --path=wordpress core install \
 Serve `wordpress/` as the document root. Re-run `composer install` after
 switching branches or when `composer.lock` changes.
 
+When migrating a local installation from the John P. Bloch packages, use a
+fresh checkout and install from the lockfile. Composer removes the old core
+package's installation directory, which can also remove nested plugin, theme,
+and upload files. Keep the old checkout and any local configuration or uploads
+until the new checkout is ready. Upsun builds already start with a fresh
+application tree; persistent uploads are mounted at deployment.
+
 ## Composer-managed application tree
 
 `composer install` and `composer update` both run the `postbuild` script. It
-copies WordPress configuration and project MU plugins, installs `upsun-wp` and
-its loader, installs the Redis object-cache drop-in, installs the custom Gratia
-Gratis theme, preserves Twenty Twenty-Four for the current production site,
-and removes unmanaged bundled plugins and inactive Twenty themes.
+first requires `wordpress/wp-includes/version.php` so an incomplete core
+archive fails the build, then copies WordPress configuration and project MU
+plugins, installs `upsun-wp` and its loader, installs the Redis object-cache
+drop-in, and installs the custom Gratia Gratis theme. Composer installs Twenty
+Twenty-Four and all third-party plugins explicitly; core supplies no bundled
+themes or plugins to remove.
 
-Add WordPress plugins to `composer.json`; do not install or update them from
-wp-admin on Upsun.
+Add WordPress plugins and third-party themes to `composer.json`; do not install
+or update them from wp-admin on Upsun.
 
 ## Gratia Gratis block theme
 

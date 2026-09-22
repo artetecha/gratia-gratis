@@ -29,9 +29,8 @@
     "artetecha/upsun-wp": "^1.0",
     "composer/installers": "^2.3",
     "inpsyde/wp-translation-downloader": "^2.0",
-    "johnpbloch/wordpress-core": ">=7.1.0 <7.1.1",
-    "johnpbloch/wordpress-core-installer": "^2.0",
     "platformsh/config-reader": "^3.0",
+    "roots/wordpress": ">=7.1.0 <7.1.1",
     "wpackagist-plugin/akismet": "^5.0",
     "wpackagist-plugin/database-for-wpforms": "^1.0",
     "wpackagist-plugin/mailchimp-for-wp": "^4.10",
@@ -40,7 +39,8 @@
     "wpackagist-plugin/redirection": "^5.5",
     "wpackagist-plugin/series": "^2.0.1",
     "wpackagist-plugin/wonderm00ns-simple-facebook-open-graph-tags": "^3.3",
-    "wpackagist-plugin/wpforms-lite": "^2.0.0.2"
+    "wpackagist-plugin/wpforms-lite": "^2.0.0.2",
+    "wpackagist-theme/twentytwentyfour": "~1.6.0"
   },
   "extra": {
     "wordpress-install-dir": "wordpress",
@@ -90,9 +90,7 @@
       "cp composer-mu-plugins/upsun/upsun-loader.php wordpress/wp-content/mu-plugins/upsun-loader.php",
       "cp wordpress/wp-content/plugins/redis-cache/includes/object-cache.php wordpress/wp-content/object-cache.php",
       "rm -rf wordpress/wp-content/themes/gratia-gratis",
-      "COPYFILE_DISABLE=1 cp -R themes/gratia-gratis wordpress/wp-content/themes/gratia-gratis",
-      "find wordpress/wp-content/themes -mindepth 1 -maxdepth 1 -type d -name 'twenty*' ! -name 'twentytwentyfour' -exec rm -rf {} +",
-      "rm -f wordpress/wp-content/plugins/hello.php"
+      "COPYFILE_DISABLE=1 cp -R themes/gratia-gratis wordpress/wp-content/themes/gratia-gratis"
     ],
     "post-install-cmd": "@postbuild",
     "post-update-cmd": "@postbuild"
@@ -101,7 +99,7 @@
     "allow-plugins": {
       "composer/installers": true,
       "inpsyde/wp-translation-downloader": true,
-      "johnpbloch/wordpress-core-installer": true
+      "roots/wordpress-core-installer": true
     },
     "platform": {
       "php": "8.4.0"

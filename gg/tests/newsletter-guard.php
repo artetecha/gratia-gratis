@@ -199,7 +199,7 @@ $key = $db->real_escape_string($argv[1]);
 $db->query("SELECT GET_LOCK('$key', 0)");
 echo "ready\n";
 flush();
-usleep(1000000);
+usleep(250000);
 $db->query("SELECT RELEASE_LOCK('$key')");
 PHP;
 	$process = proc_open( array( PHP_BINARY, '-r', $worker, $lock ), array( 0 => array( 'pipe', 'r' ), 1 => array( 'pipe', 'w' ), 2 => STDERR ), $pipes );

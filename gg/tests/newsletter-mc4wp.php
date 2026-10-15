@@ -70,6 +70,13 @@ foreach ( array(
 	$listener->process_subscribe_form( $form );
 	$window = reset( $transients );
 	check( $expected_count, $window ? $window['count'] : 0, $label . ': real MC4WP hook produces correct quota' );
+	// Exercise MC4WP's real response path too, including already-subscribed
+	// failures that do not emit mc4wp_form_api_error. Request JSON to avoid redirects.
+	$_SERVER['HTTP_ACCEPT'] = 'application/json';
+	$listener->respond( $form );
+	$lock = $wpdb->last_lock;
+	check( '1', (string) $competitor->get_var( $competitor->prepare( 'SELECT GET_LOCK(%s, 0)', $lock ) ), $label . ': lock released before page rendering' );
+	$competitor->get_var( $competitor->prepare( 'SELECT RELEASE_LOCK(%s)', $lock ) );
 	Gratia_Signup_Limit::release();
 }
 echo 'Passed ' . ( $checks - $start_checks ) . " checks using the installed MC4WP form listener.\n";

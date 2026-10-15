@@ -61,8 +61,8 @@ function gratia_signup_bucket( $ip ) {
 /**
  * Serialize a bucket from validation through the Mailchimp result. A database
  * advisory lock works across PHP workers, including with Redis transients.
- * Failed requests consume no quota. Shutdown (or a closed DB connection) frees
- * the lock; there is no expiring lease that a slow Mailchimp call can outlive.
+ * Failed requests consume no quota. Release before page rendering; shutdown
+ * (or a closed DB connection) is a fallback for interrupted requests.
  */
 class Gratia_Signup_Limit {
 	private static $pending = null;
@@ -79,7 +79,7 @@ class Gratia_Signup_Limit {
 		$key  = 'gratia_signups_v2_' . md5( $bucket );
 		$lock = 'gratia_signup_' . md5( DB_NAME . ':' . $wpdb->prefix . ':' . $bucket );
 		// Briefly queue overlapping readers; prolonged contention still rejects.
-		$held = $wpdb->get_var( $wpdb->prepare( 'SELECT GET_LOCK(%s, 5)', $lock ) );
+		$held = $wpdb->get_var( $wpdb->prepare( 'SELECT GET_LOCK(%s, 1)', $lock ) );
 		if ( '1' !== (string) $held ) {
 			if ( null === $held ) {
 				error_log( 'newsletter-guard: Could not acquire the signup database lock.' );
@@ -96,7 +96,7 @@ class Gratia_Signup_Limit {
 	}
 
 	public static function record( $form ) {
-		if ( null === self::$pending || self::$pending['form'] !== $form || ! empty( self::$pending['counted'] ) ) {
+		if ( null === self::$pending || self::$pending['form'] !== $form ) {
 			return;
 		}
 		$now    = time();
@@ -106,7 +106,7 @@ class Gratia_Signup_Limit {
 		}
 		++$window['count'];
 		set_transient( self::$pending['key'], $window, $window['expires'] - $now );
-		self::$pending['counted'] = true;
+		self::release();
 	}
 
 	public static function release() {
@@ -119,6 +119,10 @@ class Gratia_Signup_Limit {
 }
 register_shutdown_function( array( 'Gratia_Signup_Limit', 'release' ) );
 add_action( 'mc4wp_form_added_subscriber', array( 'Gratia_Signup_Limit', 'record' ) );
+add_action( 'mc4wp_form_subscribed', array( 'Gratia_Signup_Limit', 'release' ) );
+add_action( 'mc4wp_form_api_error', array( 'Gratia_Signup_Limit', 'release' ) );
+// Also covers already-subscribed errors and errors from later validators.
+add_action( 'mc4wp_form_respond', array( 'Gratia_Signup_Limit', 'release' ), 0 );
 
 /**
  * Render the Turnstile widget after the form fields. "interaction-only" keeps

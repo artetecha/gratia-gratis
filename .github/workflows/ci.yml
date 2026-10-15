@@ -13,6 +13,19 @@ jobs:
   build:
     name: Build and verify placement
     runs-on: ubuntu-latest
+    services:
+      mariadb:
+        image: mariadb:11.8
+        env:
+          MARIADB_ROOT_PASSWORD: newsletter-test
+          MARIADB_DATABASE: newsletter_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=20
     defaults:
       run:
         working-directory: gg
@@ -23,11 +36,18 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: "8.4"
+          extensions: mysqli
           tools: composer
           coverage: none
 
       - name: Validate Composer metadata
         run: composer validate --strict
+
+      - name: Test newsletter guard with MariaDB locks
+        env:
+          NEWSLETTER_TEST_DB_HOST: 127.0.0.1
+          NEWSLETTER_TEST_DB_PASSWORD: newsletter-test
+        run: php tests/newsletter-guard.php
 
       - name: Install locked production dependencies
         run: composer install --no-dev --prefer-dist --no-interaction --no-progress

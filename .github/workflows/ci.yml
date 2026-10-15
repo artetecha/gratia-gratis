@@ -43,14 +43,14 @@ jobs:
       - name: Validate Composer metadata
         run: composer validate --strict
 
-      - name: Test newsletter guard with MariaDB locks
+      - name: Install locked production dependencies
+        run: composer install --no-dev --prefer-dist --no-interaction --no-progress
+
+      - name: Test newsletter guard with MariaDB and installed MC4WP
         env:
           NEWSLETTER_TEST_DB_HOST: 127.0.0.1
           NEWSLETTER_TEST_DB_PASSWORD: newsletter-test
-        run: php tests/newsletter-guard.php
-
-      - name: Install locked production dependencies
-        run: composer install --no-dev --prefer-dist --no-interaction --no-progress
+        run: php tests/newsletter-mc4wp.php
 
       - name: Assert build placement
         run: |

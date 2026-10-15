@@ -190,6 +190,30 @@ $wpdb->unavailable = true;
 check( array( 'spam.rate_limit' ), validate( $form ), 'Database lock failure cannot bypass the limit' );
 $wpdb->unavailable = false;
 
+if ( getenv( 'NEWSLETTER_TEST_DB_HOST' ) ) {
+	// A separate worker releases its lock during the guard's wait. An immediate
+	// GET_LOCK(..., 0) would incorrectly reject this otherwise valid signup.
+	$worker = <<<'PHP'
+$db = new mysqli(getenv('NEWSLETTER_TEST_DB_HOST'), 'root', getenv('NEWSLETTER_TEST_DB_PASSWORD'), 'newsletter_test');
+$key = $db->real_escape_string($argv[1]);
+$db->query("SELECT GET_LOCK('$key', 0)");
+echo "ready\n";
+flush();
+usleep(1000000);
+$db->query("SELECT RELEASE_LOCK('$key')");
+PHP;
+	$process = proc_open( array( PHP_BINARY, '-r', $worker, $lock ), array( 0 => array( 'pipe', 'r' ), 1 => array( 'pipe', 'w' ), 2 => STDERR ), $pipes );
+	check( "ready\n", fgets( $pipes[1] ), 'Competing worker acquired the lock' );
+	try {
+		check( array(), validate( $form ), 'Briefly overlapping signup waits and succeeds' );
+	} finally {
+		Gratia_Signup_Limit::release();
+		fclose( $pipes[0] );
+		fclose( $pipes[1] );
+		proc_close( $process );
+	}
+}
+
 // IPv6 rotation within a /64 shares quota; another /64 remains independent.
 $transients = array();
 for ( $i = 1; $i <= 3; ++$i ) {

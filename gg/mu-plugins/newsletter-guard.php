@@ -78,7 +78,8 @@ class Gratia_Signup_Limit {
 		}
 		$key  = 'gratia_signups_v2_' . md5( $bucket );
 		$lock = 'gratia_signup_' . md5( DB_NAME . ':' . $wpdb->prefix . ':' . $bucket );
-		$held = $wpdb->get_var( $wpdb->prepare( 'SELECT GET_LOCK(%s, 0)', $lock ) );
+		// Briefly queue overlapping readers; prolonged contention still rejects.
+		$held = $wpdb->get_var( $wpdb->prepare( 'SELECT GET_LOCK(%s, 5)', $lock ) );
 		if ( '1' !== (string) $held ) {
 			if ( null === $held ) {
 				error_log( 'newsletter-guard: Could not acquire the signup database lock.' );

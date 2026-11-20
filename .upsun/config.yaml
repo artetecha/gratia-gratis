@@ -45,15 +45,23 @@ applications:
           allow: true
           headers:
             X-Content-Type-Options: nosniff
+          # Rules match the full request path, leading slash included. `/+`
+          # also catches the `//path` form that bots use.
           rules:
-            ^composer\.(json|lock)$:
+            ^/+composer\.(json|lock)$:
               allow: false
-            ^license\.txt$:
+            ^/+license\.txt$:
               allow: false
-            ^readme\.html$:
+            ^/+readme\.html$:
               allow: false
-            ^xmlrpc\.php$:
-              allow: false
+        # `allow: false` rules only stop static files; PHP still runs under
+        # `scripts: true`. Give xmlrpc.php its own location so brute-force
+        # POSTs never reach PHP.
+        "/xmlrpc.php":
+          root: "wordpress"
+          passthru: false
+          scripts: false
+          allow: false
         "/wp-content/cache":
           root: "wordpress/wp-content/cache"
           scripts: false

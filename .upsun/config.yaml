@@ -84,7 +84,7 @@ services:
   ggdb:
     type: mariadb:11.8
   redis:
-    type: redis:8.0
+    type: redis:8.8
 
 routes:
   "https://www.gratia.gratis/":
